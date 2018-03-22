@@ -61,7 +61,7 @@ public class SoldierSpawner : MonoBehaviour
     {
         Unit instance = UnitPool.Instance.GetUnitFromPool();
         instance.InitUnit(Owner);
-        instance.GetComponent<Collider2D>().enabled = true;
+        instance.GetComponent<BoxCollider2D>().enabled = true;
 
         float posY = Random.Range(spawnAreaBottom, spawnAreaTop);
         instance.transform.position = new Vector3(spawnPositionX, posY, 0);

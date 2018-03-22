@@ -31,8 +31,9 @@ public class UnitPool : MonoBehaviour
         for (int i=0; i<POOL_SIZE; ++i)
         {
             GameObject instance = Instantiate(UnitPrefab) as GameObject;
-            instance.GetComponent<BoxCollider2D>().enabled = false;
-            instance.GetComponent<Unit>().enabled = false;
+            Unit unit = instance.GetComponent<Unit>();
+            unit.unitCollider.enabled = false;
+            unit.enabled = false;
             instance.transform.position = POOL_POSITION;
             instance.transform.SetParent(transform);
             _pool.Add(instance.GetComponent<Unit>());
@@ -58,8 +59,8 @@ public class UnitPool : MonoBehaviour
 
     public void ReturnUnitToPool(Unit unit)
     {
-        unit.GetComponent<BoxCollider2D>().enabled = false;
-        unit.GetComponent<Unit>().enabled = false;
+        unit.unitCollider.enabled = false;
+        unit.enabled = false;
         
         if (_pool.Count <= MAX_POOL_SIZE)
         {

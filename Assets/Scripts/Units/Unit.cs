@@ -17,8 +17,12 @@ public class Unit : MonoBehaviour {
     [SerializeField]
     UnitParams unitParams = null;
 
+    public UnitAimComponent aimComponent = null;
+    public BoxCollider2D unitCollider = null;
+
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+        unitCollider = GetComponent<BoxCollider2D>();
         Debug.Assert(unitParams);
         SetState(new RunUnitState(this), unitState);
 	}
@@ -39,6 +43,11 @@ public class Unit : MonoBehaviour {
     public void InitUnit(UnitOwner owner)
     {
         this.owner = owner;
+        if (aimComponent == null)
+        {
+            aimComponent = gameObject.AddComponent<UnitAimComponent>();
+        }
+        aimComponent.Init(this);
         SetState(new RunUnitState(this), unitState);
     }
 
@@ -73,6 +82,7 @@ public class Unit : MonoBehaviour {
     public void DestroyUnit()
     {
         unitState = null;
+        aimComponent.Deinit();
         UnitPool.Instance.ReturnUnitToPool(this);
     }
 }

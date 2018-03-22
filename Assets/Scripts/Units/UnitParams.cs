@@ -5,4 +5,5 @@ using System.Collections;
 public class UnitParams : ScriptableObject
 {
     public float moveSpeed = 0;
+    public float aimRadius = 0;
 }
