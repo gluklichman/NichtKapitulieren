@@ -225,6 +225,8 @@
     <Compile Include="Assets\Scripts\Graphics\MeshColliderFill.cs" />
     <Compile Include="Assets\Scripts\Graphics\SolidColorFill.cs" />
     <Compile Include="Assets\Scripts\Graphics\Triangulator.cs" />
+    <Compile Include="Assets\Scripts\Units\States\WaitForShootPlayerState.cs" />
+    <Compile Include="Assets\Scripts\Units\States\ShootPlayerState.cs" />
     <Compile Include="Assets\Scripts\Units\UnitAimComponent.cs" />
     <Compile Include="Assets\Scripts\Units\SoldierSpawner.cs" />
     <Compile Include="Assets\Scripts\Units\States\BaseUnitState.cs" />

@@ -18,7 +18,6 @@ public class UnitAimComponent : MonoBehaviour
     public void Init(Unit unit)
     {
         this.unit = unit;
-        Debug.Assert(aimRadius == null);
 
         if (aimRadius == null)
         {
@@ -50,6 +49,7 @@ public class UnitAimComponent : MonoBehaviour
             && otherUnit.GetOwner() != unit.GetOwner()
             && collision == otherUnit.unitCollider)
         {
+            otherUnit.unitDestroyed += OnUnitDestroyed;
             possibleAims.Add(otherUnit);
         }
 
@@ -58,6 +58,22 @@ public class UnitAimComponent : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         Unit otherUnit = collision.GetComponent<Unit>();
+        otherUnit.unitDestroyed -= OnUnitDestroyed;
         possibleAims.Remove(otherUnit);
+    }
+
+    public bool HasAvailableAims()
+    {
+        return possibleAims.Count > 0;
+    }
+
+    public List<Unit> GetPossibleAims()
+    {
+        return possibleAims;
+    }
+
+    public void OnUnitDestroyed(Unit unit)
+    {
+        possibleAims.Remove(unit);
     }
 }

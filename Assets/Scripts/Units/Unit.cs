@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +19,8 @@ public class Unit : MonoBehaviour {
 
     public UnitAimComponent aimComponent = null;
     public BoxCollider2D unitCollider = null;
+
+    public Action<Unit> unitDestroyed;
 
 	// Use this for initialization
 	void Awake () {
@@ -48,6 +50,18 @@ public class Unit : MonoBehaviour {
             aimComponent = gameObject.AddComponent<UnitAimComponent>();
         }
         aimComponent.Init(this);
+
+        if (owner == UnitOwner.PLAYER)
+        {
+            transform.Find("SpriteEnemy").gameObject.SetActive(false);
+            transform.Find("SpritePlayer").gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.Find("SpriteEnemy").gameObject.SetActive(true);
+            transform.Find("SpritePlayer").gameObject.SetActive(false);
+        }
+
         SetState(new RunUnitState(this), unitState);
     }
 
@@ -81,6 +95,10 @@ public class Unit : MonoBehaviour {
 
     public void DestroyUnit()
     {
+        if (unitDestroyed != null)
+        {
+            unitDestroyed(this);
+        }
         unitState = null;
         aimComponent.Deinit();
         UnitPool.Instance.ReturnUnitToPool(this);

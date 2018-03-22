@@ -12,6 +12,11 @@ public class RunUnitState : BaseUnitState
         Vector2 direction = GetMoveDirection();
         float moveSpeed = unit.GetParams().moveSpeed;
         unit.transform.Translate(direction * moveSpeed * Time.deltaTime, 0);
+
+        if (unit.aimComponent.HasAvailableAims())
+        {
+            unit.SetState(new WaitForShootPlayerState(unit), this);
+        }
     }
 
     private Vector2 GetMoveDirection()

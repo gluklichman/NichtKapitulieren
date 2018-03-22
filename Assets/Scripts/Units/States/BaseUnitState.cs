@@ -2,7 +2,9 @@
 
 public enum UnitStateType
 {
-    RUN
+    RUN,
+    SHOOT,
+    SHOOT_WAIT
 }
 
 public class BaseUnitState
