@@ -29,6 +29,11 @@ public class Unit : MonoBehaviour {
         {
             unitState.HandleUpdate();
         }
+        if (transform.position.x < GlobalConstants.leftFieldBorder
+            || transform.position.x > GlobalConstants.rightFieldBorder)
+        {
+            DestroyUnit();
+        }
 	}
 
     public void InitUnit(UnitOwner owner)
@@ -63,5 +68,11 @@ public class Unit : MonoBehaviour {
     public UnitParams GetParams()
     {
         return unitParams;
+    }
+
+    public void DestroyUnit()
+    {
+        unitState = null;
+        UnitPool.Instance.ReturnUnitToPool(this);
     }
 }

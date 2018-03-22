@@ -9,4 +9,7 @@ public class GlobalConstants
 
     public static Vector2 PLAYER_ATTACK_DIRECTION = Vector2.right;
     public static Vector2 ENEMY_ATTACK_DIRECTION = Vector2.left;
+
+    public static float leftFieldBorder = -40f;
+    public static float rightFieldBorder = 40f;
 }

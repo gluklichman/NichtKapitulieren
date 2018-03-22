@@ -14,6 +14,7 @@ public class UnitPool : MonoBehaviour
 
     private List<Unit> _pool = new List<Unit>();
     private const float POOL_SIZE = 100;
+    private const float MAX_POOL_SIZE = 200;
     private static Vector3 POOL_POSITION = new Vector3(-1000, -1000);
 
     public GameObject UnitPrefab = null;
@@ -59,8 +60,17 @@ public class UnitPool : MonoBehaviour
     {
         unit.GetComponent<BoxCollider2D>().enabled = false;
         unit.GetComponent<Unit>().enabled = false;
-        unit.transform.position = POOL_POSITION;
-        unit.transform.SetParent(transform);
-        _pool.Add(unit);
+        
+        if (_pool.Count <= MAX_POOL_SIZE)
+        {
+            unit.transform.position = POOL_POSITION;
+            unit.transform.SetParent(transform);
+            _pool.Add(unit);
+        }
+        else
+        {
+            Destroy(unit.gameObject);
+        }
+        
     }
 }
