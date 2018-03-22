@@ -31,6 +31,12 @@ public class Unit : MonoBehaviour {
         }
 	}
 
+    public void InitUnit(UnitOwner owner)
+    {
+        this.owner = owner;
+        SetState(new RunUnitState(this), unitState);
+    }
+
     public void SetState(BaseUnitState newState, BaseUnitState prevState)
     {
         if (prevState != unitState)
