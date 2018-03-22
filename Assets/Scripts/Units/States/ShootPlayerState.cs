@@ -23,7 +23,7 @@ public class ShootPlayerState : BaseUnitState
             Unit aim = possibleAims[index];
             
             Vector2 aimCenter = aim.transform.position;
-            float radius = 1f;
+            float radius = unit.GetParams().hitRadius;
             Vector2 point = Random.insideUnitCircle * radius + aimCenter;
             if (aim.unitCollider.bounds.Contains(point))
             {
