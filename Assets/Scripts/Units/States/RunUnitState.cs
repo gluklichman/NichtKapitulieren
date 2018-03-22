@@ -3,14 +3,19 @@ using System.Collections;
 
 public class RunUnitState : BaseUnitState
 {
+	private float moveSpeed = 0;
+
     public RunUnitState(Unit unit) : base(UnitStateType.RUN, unit)
-    { }
+    {		
+		moveSpeed = unit.GetParams().minSpeed + Random.Range((float)unit.GetParams().minSpeed, (float)unit.GetParams().maxSpeed);
+	}
+
+
 
     public override void HandleUpdate()
     {
         base.HandleUpdate();
         Vector2 direction = GetMoveDirection();
-        float moveSpeed = unit.GetParams().moveSpeed;
         unit.transform.Translate(direction * moveSpeed * Time.deltaTime, 0);
     }
 
