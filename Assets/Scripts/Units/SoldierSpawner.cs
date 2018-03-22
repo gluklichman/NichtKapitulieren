@@ -5,8 +5,14 @@ public class SoldierSpawner : MonoBehaviour
 {
     public UnitOwner Owner = UnitOwner.PLAYER;
 
-    private const float SPAWN_PERIOD = 1.0f;
+    public float periodBetweenUnits = 1.0f;
+    public float waveLength = 5.0f;
+    public float timeBetweenWaves = 5.0f;
+
+    private bool isWave = true;
+
     private float lastSpawnTime = 0;
+    private float lastWaveTime = 0;
 
     [SerializeField]
     private float spawnPositionX = 0;
@@ -28,10 +34,26 @@ public class SoldierSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.timeSinceLevelLoad - lastSpawnTime > SPAWN_PERIOD)
+        if (isWave)
         {
-            SpawnSoldier();
-            lastSpawnTime = Time.timeSinceLevelLoad;
+            if (Time.timeSinceLevelLoad - lastSpawnTime > periodBetweenUnits)
+            {
+                SpawnSoldier();
+                lastSpawnTime = Time.timeSinceLevelLoad;
+            }
+            if (Time.timeSinceLevelLoad - lastWaveTime > waveLength)
+            {
+                isWave = false;
+                lastWaveTime = Time.timeSinceLevelLoad;
+            }
+        }
+        else
+        {
+            if (Time.timeSinceLevelLoad - lastWaveTime > waveLength)
+            {
+                lastWaveTime = Time.timeSinceLevelLoad;
+                isWave = true;
+            }
         }
     }
 
