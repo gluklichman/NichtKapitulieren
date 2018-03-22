@@ -55,10 +55,12 @@ public class Unit : MonoBehaviour {
         {
             transform.Find("SpriteEnemy").gameObject.SetActive(false);
             transform.Find("SpritePlayer").gameObject.SetActive(true);
+            transform.Find("SpritePlayer/shotFire").gameObject.SetActive(false);
         }
         else
         {
             transform.Find("SpriteEnemy").gameObject.SetActive(true);
+            transform.Find("SpriteEnemy/shotFire").gameObject.SetActive(false);
             transform.Find("SpritePlayer").gameObject.SetActive(false);
         }
 
