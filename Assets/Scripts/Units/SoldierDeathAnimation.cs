@@ -4,12 +4,15 @@ using System.Collections;
 public class SoldierDeathAnimation : MonoBehaviour
 {
     public UnitOwner owner = UnitOwner.ENEMY;
+	public AudioClip[] deathCry;
 
     private const float ROTATION_SPEED = 180;
     private float rotationTime = 0.5f;
     private float layTime = 0.5f;
 
-    private Transform spriteTransform = null;
+	private AudioSource audioSource;
+
+	private Transform spriteTransform = null;
     private Transform bloodTransform = null;
 
     // Use this for initialization
@@ -18,7 +21,16 @@ public class SoldierDeathAnimation : MonoBehaviour
         spriteTransform = transform.Find("Sprite");
         bloodTransform = transform.Find("blood");
         bloodTransform.gameObject.SetActive(false);
-    }
+
+		audioSource = gameObject.GetComponent<AudioSource>();
+		if (!audioSource.isPlaying)
+		{
+			int rndIndex = Random.Range(0, deathCry.Length - 1);
+			audioSource.clip = deathCry[rndIndex];
+			audioSource.Play();
+		}
+
+	}
 
     // Update is called once per frame
     void Update()
@@ -36,7 +48,7 @@ public class SoldierDeathAnimation : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
-        }
+			Destroy(gameObject);
+		}
     }
 }
