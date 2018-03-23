@@ -48,7 +48,7 @@ public class SoldierSpawner : MonoBehaviour
         }
         else
         {
-            if (Time.timeSinceLevelLoad - lastWaveTime > waveLength)
+            if (Time.timeSinceLevelLoad - lastWaveTime > timeBetweenWaves)
             {
                 lastWaveTime = Time.timeSinceLevelLoad;
                 lastSpawnTime = Time.timeSinceLevelLoad - periodBetweenUnits;
