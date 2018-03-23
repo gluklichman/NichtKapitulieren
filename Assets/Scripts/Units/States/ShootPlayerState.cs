@@ -6,6 +6,7 @@ public class ShootPlayerState : BaseUnitState
     private bool shootPerformed = false;
 	private AudioSource audioSource;
 	private ShotSounds am;
+	private TankSounds ts;
 	private GameObject audioSourceObject;
 
 	private float waitAfterShoot = 0.05f;
@@ -31,16 +32,29 @@ public class ShootPlayerState : BaseUnitState
             Shoot();
             shootPerformed = true;
 
-			audioSourceObject = GameObject.Find("Audio_ShotSounds");
-			audioSource = audioSourceObject.GetComponent<AudioSource>();
-			am = audioSourceObject.GetComponent<ShotSounds>();
-
-			if (!audioSource.isPlaying)
+			if (unit.GetUnitType() == UnitType.SOLDIER)
 			{
-				int rndIndex = Random.Range(0, am.shotSounds.Length - 1);
-				audioSource.clip = am.shotSounds[rndIndex];
+				audioSourceObject = GameObject.Find("Audio_ShotSounds");
+				audioSource = audioSourceObject.GetComponent<AudioSource>();
+				am = audioSourceObject.GetComponent<ShotSounds>();
+
+				if (!audioSource.isPlaying)
+				{
+					int rndIndex = Random.Range(0, am.shotSounds.Length - 1);
+					audioSource.clip = am.shotSounds[rndIndex];
+					audioSource.Play();
+				}
+			}
+			else
+			{
+				audioSourceObject = GameObject.Find("Audio_Tank");
+				audioSource = audioSourceObject.GetComponent<AudioSource>();
+				ts = audioSourceObject.GetComponent<TankSounds>();
+				audioSource.clip = ts.tankBoom;
 				audioSource.Play();
 			}
+
+
 		}
         else
         {
