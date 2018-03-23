@@ -53,7 +53,7 @@ public class SoldierSpawner : MonoBehaviour
             {
                 Debug.Log(Time.timeSinceLevelLoad - lastWaveTime);
             }
-            if (Time.timeSinceLevelLoad - lastWaveTime > waveLength)
+            if (Time.timeSinceLevelLoad - lastWaveTime > timeBetweenWaves)
             {
                 lastWaveTime = Time.timeSinceLevelLoad;
                 lastSpawnTime = Time.timeSinceLevelLoad - periodBetweenUnits;
