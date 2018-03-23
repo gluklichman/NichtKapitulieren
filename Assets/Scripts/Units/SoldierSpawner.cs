@@ -35,11 +35,11 @@ public class SoldierSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0)
-            && Owner == UnitOwner.PLAYER)
-        {
-            SpawnTank();
-        }
+        //if (Input.GetMouseButtonUp(0)
+        //    && Owner == UnitOwner.PLAYER)
+        //{
+        //    SpawnTank();
+        //}
 
 
 		if (isWave)
@@ -57,7 +57,7 @@ public class SoldierSpawner : MonoBehaviour
 		}
 		else
 		{
-			if (Time.timeSinceLevelLoad - lastWaveTime > timeBetweenWaves || (Input.GetKeyDown("space") && Owner == UnitOwner.PLAYER))
+			if (Time.timeSinceLevelLoad - lastWaveTime > timeBetweenWaves /*|| (Input.GetKeyDown("space") && Owner == UnitOwner.PLAYER)*/)
 			{
 				lastWaveTime = Time.timeSinceLevelLoad;
 				lastSpawnTime = Time.timeSinceLevelLoad - periodBetweenUnits;
@@ -66,6 +66,15 @@ public class SoldierSpawner : MonoBehaviour
 				audioSource.Play();
 			}
 		}
+    }
+
+    public void StartSpawnSoldiers()
+    {
+        lastWaveTime = Time.timeSinceLevelLoad;
+        lastSpawnTime = Time.timeSinceLevelLoad - periodBetweenUnits;
+        isWave = true;
+        audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.Play();
     }
 
     private void SpawnSoldier()
@@ -95,7 +104,7 @@ public class SoldierSpawner : MonoBehaviour
         Gizmos.DrawWireCube(new Vector3(spawnPositionX, center, 0), new Vector3(1, height, 1));       
     }
 
-    void SpawnTank()
+    public void SpawnTank()
     {
         Unit instance = UnitPool.Instance.GetTankFromPool();
         instance.InitUnit(Owner);
