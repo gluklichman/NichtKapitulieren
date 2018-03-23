@@ -4,8 +4,11 @@ using System.Collections.Generic;
 public class ShootPlayerState : BaseUnitState
 {
     private bool shootPerformed = false;
+	private AudioSource audioSource;
+	private AudioManager am;
+	private GameObject audioSourceObject;
 
-    private float waitAfterShoot = 0.05f;
+	private float waitAfterShoot = 0.05f;
 
     public ShootPlayerState(Unit unit) : base(UnitStateType.SHOOT, unit)
     {
@@ -41,7 +44,18 @@ public class ShootPlayerState : BaseUnitState
         {
             Shoot();
             shootPerformed = true;
-        }
+
+			audioSourceObject = GameObject.Find("AudioManager");
+			audioSource = audioSourceObject.GetComponent<AudioSource>();
+			am = audioSourceObject.GetComponent<AudioManager>();
+
+			if (!audioSource.isPlaying)
+			{
+				int rndIndex = Random.Range(0, am.deathSounds.Length - 1);
+				audioSource.clip = am.deathSounds[rndIndex];
+				audioSource.Play();
+			}
+		}
         else
         {
             waitAfterShoot -= Time.deltaTime;

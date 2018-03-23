@@ -29,8 +29,8 @@ public class SoldierDeathAnimation : MonoBehaviour
 
 		if (!audioSource.isPlaying)
 		{
-			int rndIndex = Random.Range(0, am.sounds.Length - 1);
-			audioSource.clip = am.sounds[rndIndex];
+			int rndIndex = Random.Range(0, am.deathSounds.Length - 1);
+			audioSource.clip = am.deathSounds[rndIndex];
 			audioSource.Play();
 		}
 

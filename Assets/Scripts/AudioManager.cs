@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
-	public AudioClip[] sounds;
+	public AudioClip[] deathSounds;
+	public AudioClip[] shotSounds;
 
 	private AudioSource audioSource;
 
