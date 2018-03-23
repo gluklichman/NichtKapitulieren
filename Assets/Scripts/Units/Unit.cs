@@ -103,7 +103,6 @@ public class Unit : MonoBehaviour {
 
     public void DestroyUnit(bool animation)
     {
-        Debug.Log("Destroy unit " + uniqueID);
         if (unitDestroyed != null)
         {
             unitDestroyed(this);

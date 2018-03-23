@@ -12,4 +12,17 @@ public class GlobalConstants
 
     public static float leftFieldBorder = -40f;
     public static float rightFieldBorder = 40f;
+
+    public static GameObject playerSpawner = null;
+    public static SoldierSpawner playerSpawnerScript = null;
+    public static GameObject enemySpawner = null;
+    public static SoldierSpawner enemySpawnerScript = null;
+
+    static GlobalConstants()
+    {
+        playerSpawner = GameObject.Find("SpawnPlayer");
+        playerSpawnerScript = playerSpawner.GetComponent<SoldierSpawner>();
+        enemySpawner = GameObject.Find("SpawnEnemy");
+        enemySpawnerScript = enemySpawner.GetComponent<SoldierSpawner>();
+    }
 }

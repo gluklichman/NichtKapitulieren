@@ -21,7 +21,10 @@ public class RunUnitState : BaseUnitState
         if (unit.aimComponent.HasAvailableAims())
         {
             unit.SetState(new WaitForShootPlayerState(unit), this);
+            return;
         }
+
+        CheckForWinCondition();
     }
 
     private Vector2 GetMoveDirection()
@@ -33,6 +36,25 @@ public class RunUnitState : BaseUnitState
         else
         {
             return GlobalConstants.PLAYER_ATTACK_DIRECTION;
+        }
+    }
+
+    private void CheckForWinCondition()
+    {
+        if (unit.GetOwner() == UnitOwner.PLAYER
+            && unit.transform.position.x > GlobalConstants.enemySpawnerScript.spawnPositionX)
+        {
+            GlobalConstants.enemySpawner.GetComponent<AreaHitComponent>().DealDamage(1);
+            GameObject.Destroy(unit);
+            return;
+        }
+
+        if (unit.GetOwner() == UnitOwner.ENEMY
+            && unit.transform.position.x < GlobalConstants.playerSpawnerScript.spawnPositionX)
+        {
+            GlobalConstants.playerSpawner.GetComponent<AreaHitComponent>().DealDamage(1);
+            GameObject.Destroy(unit);
+            return;
         }
     }
 }
