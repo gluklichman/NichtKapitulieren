@@ -48,7 +48,7 @@ public class UnitAimComponent : MonoBehaviour
         if (otherUnit != null
             && otherUnit.GetOwner() != unit.GetOwner()
             && collision == otherUnit.unitCollider
-            && otherUnit.GetUnitState().GetStateType() != UnitStateType.DEAD)
+            && otherUnit.GetUnitState().GetStateType() != UnitStateType.IDLE)
         {
             otherUnit.unitDestroyed += OnUnitDestroyed;
             possibleAims.Add(otherUnit);
@@ -59,8 +59,11 @@ public class UnitAimComponent : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         Unit otherUnit = collision.GetComponent<Unit>();
-        otherUnit.unitDestroyed -= OnUnitDestroyed;
-        possibleAims.Remove(otherUnit);
+        if (otherUnit)
+        {
+            otherUnit.unitDestroyed -= OnUnitDestroyed;
+            possibleAims.Remove(otherUnit);
+        }
     }
 
     public bool HasAvailableAims()
@@ -70,6 +73,7 @@ public class UnitAimComponent : MonoBehaviour
 
     public List<Unit> GetPossibleAims()
     {
+        possibleAims.RemoveAll(unit => unit.GetUnitState().GetStateType() == UnitStateType.IDLE);
         return possibleAims;
     }
 
