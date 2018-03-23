@@ -8,6 +8,12 @@ public enum UnitOwner
     ENEMY
 }
 
+public enum UnitType
+{
+    SOLDIER,
+    TANK
+}
+
 public class Unit : MonoBehaviour {
 
     public static int ID = 0;
@@ -153,5 +159,10 @@ public class Unit : MonoBehaviour {
     public virtual BaseDamageComponent GetDamageComponent()
     {
         return new SimpleDamage();
+    }
+
+    public virtual UnitType GetUnitType()
+    {
+        return UnitType.SOLDIER;
     }
 }

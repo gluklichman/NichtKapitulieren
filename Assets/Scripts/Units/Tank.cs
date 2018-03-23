@@ -12,4 +12,9 @@ public class Tank : Unit
     {
         return new TankSplashDamage();
     }
+
+    public override UnitType GetUnitType()
+    {
+        return UnitType.TANK;
+    }
 }
