@@ -42,10 +42,10 @@ public class TankSplashDamage : BaseDamageComponent
             {
                 continue;
             }
-            if (target.GetOwner() == unit.GetOwner())
-            {
-                continue;
-            }
+            //if (target.GetOwner() == unit.GetOwner())
+            //{
+            //    continue;
+            //}
             target.DealDamage(unit.GetParams().damage);
         }
 
