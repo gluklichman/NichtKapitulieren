@@ -31,14 +31,15 @@ public class TankSplashDamage : BaseDamageComponent
         Vector2 explosionPoint = point + radiusVector * delta;
 
         RaycastHit2D[] hits = Physics2D.CircleCastAll(explosionPoint, tankParams.explosionRadius, Vector2.zero);
-        foreach(RaycastHit2D hit in hits)
+        foreach (RaycastHit2D hit in hits)
         {
             if (hit.collider == null)
             {
                 continue;
             }
             Unit target = hit.collider.GetComponent<Unit>();
-            if (target == null)
+            if (target == null
+                || target.unitCollider != hit.collider)
             {
                 continue;
             }
