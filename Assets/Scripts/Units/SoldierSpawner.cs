@@ -9,8 +9,7 @@ public class SoldierSpawner : MonoBehaviour
     public float waveLength = 5.0f;
     public float timeBetweenWaves = 5.0f;
 
-    private bool isPlayerWave = true;
-	private bool isEnemyWave = true;
+    private bool isWave = true;
 
 	private AudioSource audioSource;
 
@@ -42,55 +41,29 @@ public class SoldierSpawner : MonoBehaviour
             SpawnTank();
         }
 
-		if (Owner == UnitOwner.PLAYER)
+
+		if (isWave)
 		{
-			if (isPlayerWave)
+			if (Time.timeSinceLevelLoad - lastSpawnTime > periodBetweenUnits)
 			{
-				if (Time.timeSinceLevelLoad - lastSpawnTime > periodBetweenUnits)
-				{
-					SpawnSoldier();
-					lastSpawnTime = Time.timeSinceLevelLoad;
-				}
-				if (Time.timeSinceLevelLoad - lastWaveTime > waveLength)
-				{
-					isPlayerWave = false;
-					lastWaveTime = Time.timeSinceLevelLoad;
-				}
+				SpawnSoldier();
+				lastSpawnTime = Time.timeSinceLevelLoad;
 			}
-			else
+			if (Time.timeSinceLevelLoad - lastWaveTime > waveLength)
 			{
-				if (Time.timeSinceLevelLoad - lastWaveTime > timeBetweenWaves || Input.GetKeyDown("space"))
-				{
-					lastWaveTime = Time.timeSinceLevelLoad;
-					lastSpawnTime = Time.timeSinceLevelLoad - periodBetweenUnits;
-					isPlayerWave = true;
-					audioSource = gameObject.GetComponent<AudioSource>();
-					audioSource.Play();
-				}
+				isWave = false;
+				lastWaveTime = Time.timeSinceLevelLoad;
 			}
 		}
-		else {
-			if (isEnemyWave)
+		else
+		{
+			if (Time.timeSinceLevelLoad - lastWaveTime > timeBetweenWaves || (Input.GetKeyDown("space") && Owner == UnitOwner.PLAYER))
 			{
-				if (Time.timeSinceLevelLoad - lastSpawnTime > periodBetweenUnits)
-				{
-					SpawnSoldier();
-					lastSpawnTime = Time.timeSinceLevelLoad;
-				}
-				if (Time.timeSinceLevelLoad - lastWaveTime > waveLength)
-				{
-					isEnemyWave = false;
-					lastWaveTime = Time.timeSinceLevelLoad;
-				}
-			}
-			else
-			{
-				if (Time.timeSinceLevelLoad - lastWaveTime > timeBetweenWaves)
-				{
-					lastWaveTime = Time.timeSinceLevelLoad;
-					lastSpawnTime = Time.timeSinceLevelLoad - periodBetweenUnits;
-					isEnemyWave = true;
-				}
+				lastWaveTime = Time.timeSinceLevelLoad;
+				lastSpawnTime = Time.timeSinceLevelLoad - periodBetweenUnits;
+				isWave = true;
+				audioSource = gameObject.GetComponent<AudioSource>();
+				audioSource.Play();
 			}
 		}
     }
