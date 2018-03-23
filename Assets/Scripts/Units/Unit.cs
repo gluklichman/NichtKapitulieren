@@ -125,5 +125,6 @@ public class Unit : MonoBehaviour {
         GameObject deathPrefab = (owner == UnitOwner.PLAYER) ? GetParams().deathPrefabPlayer : GetParams().deathPrefabEnemy;
         GameObject instance = Instantiate(deathPrefab) as GameObject;
         instance.transform.position = transform.position;
+        instance.transform.Translate(0, 0, 1);
     }
 }

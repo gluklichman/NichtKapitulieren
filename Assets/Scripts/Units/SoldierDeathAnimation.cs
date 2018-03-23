@@ -9,9 +9,15 @@ public class SoldierDeathAnimation : MonoBehaviour
     private float rotationTime = 0.5f;
     private float layTime = 0.5f;
 
+    private Transform spriteTransform = null;
+    private Transform bloodTransform = null;
+
     // Use this for initialization
     void Start()
     {
+        spriteTransform = transform.Find("Sprite");
+        bloodTransform = transform.Find("blood");
+        bloodTransform.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,11 +26,12 @@ public class SoldierDeathAnimation : MonoBehaviour
         if (rotationTime > 0)
         {
             float direction = (owner == UnitOwner.PLAYER) ? 1 : -1;
-            transform.Rotate(0, 0, ROTATION_SPEED * Time.deltaTime * direction);
+            spriteTransform.Rotate(0, 0, ROTATION_SPEED * Time.deltaTime * direction);
             rotationTime -= Time.deltaTime;
         }
         else if (layTime > 0)
         {
+            bloodTransform.gameObject.SetActive(true);
             layTime -= Time.deltaTime;
         }
         else
