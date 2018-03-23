@@ -12,6 +12,8 @@ public class SoldierSpawner : MonoBehaviour
     private bool isPlayerWave = true;
 	private bool isEnemyWave = true;
 
+	private AudioSource audioSource;
+
 	private float lastSpawnTime = 0;
     private float lastWaveTime = 0;
 
@@ -62,6 +64,8 @@ public class SoldierSpawner : MonoBehaviour
 					lastWaveTime = Time.timeSinceLevelLoad;
 					lastSpawnTime = Time.timeSinceLevelLoad - periodBetweenUnits;
 					isPlayerWave = true;
+					audioSource = gameObject.GetComponent<AudioSource>();
+					audioSource.Play();
 				}
 			}
 		}

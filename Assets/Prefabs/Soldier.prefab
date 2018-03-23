@@ -238,7 +238,9 @@ MonoBehaviour:
   unitParams: {fileID: 11400000, guid: 0e7086d5c453640468e44c56bf0abb9a, type: 2}
   aimComponent: {fileID: 0}
   moralComponent: {fileID: 0}
+  soldierSprite: {fileID: 0}
   unitCollider: {fileID: 0}
+  hitpoint: 0
 --- !u!114 &114897573627063124
 MonoBehaviour:
   m_ObjectHideFlags: 1
