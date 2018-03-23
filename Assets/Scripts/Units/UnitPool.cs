@@ -19,6 +19,7 @@ public class UnitPool : MonoBehaviour
 
     public GameObject UnitPrefab = null;
     public GameObject TankPrefab = null;
+	public GameObject BazookaPrefab = null;
 
     // Use this for initialization
     void Awake()
@@ -87,4 +88,15 @@ public class UnitPool : MonoBehaviour
     {
         Destroy(unit.gameObject);
     }
+
+	public Unit GetBazookaFromPool()
+	{
+		GameObject instance = Instantiate(BazookaPrefab) as GameObject;
+		return instance.GetComponent<Unit>();
+	}
+
+	public void ReturnBazookaToPool( Unit unit)
+	{
+		Destroy(unit.gameObject);
+	}
 }

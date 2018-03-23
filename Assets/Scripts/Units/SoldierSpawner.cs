@@ -57,7 +57,7 @@ public class SoldierSpawner : MonoBehaviour
 		}
 		else
 		{
-			if (Time.timeSinceLevelLoad - lastWaveTime > timeBetweenWaves || (Input.GetKeyDown("space") && Owner == UnitOwner.PLAYER))
+			if (Time.timeSinceLevelLoad - lastWaveTime > timeBetweenWaves || (Input.GetKeyDown("space") && Owner == UnitOwner.ENEMY))
 			{
 				lastWaveTime = Time.timeSinceLevelLoad;
 				lastSpawnTime = Time.timeSinceLevelLoad - periodBetweenUnits;
@@ -70,8 +70,17 @@ public class SoldierSpawner : MonoBehaviour
 
     private void SpawnSoldier()
     {
-        Unit instance = UnitPool.Instance.GetUnitFromPool();
-        instance.InitUnit(Owner);
+		float rnd = Random.Range(0f, 1f);
+		Unit instance = null;
+		if (rnd < 0.95f)
+		{
+			instance = UnitPool.Instance.GetUnitFromPool();
+		}
+		else
+		{
+			instance = UnitPool.Instance.GetBazookaFromPool();
+		}
+		instance.InitUnit(Owner);
         instance.GetComponent<BoxCollider2D>().enabled = true;
 
         float posY = Random.Range(spawnAreaBottom, spawnAreaTop);

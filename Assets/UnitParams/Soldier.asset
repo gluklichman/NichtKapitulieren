@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Soldier
   m_EditorClassIdentifier: 
   minSpeed: 1
-  maxSpeed: 2
+  maxSpeed: 3
   aimRadius: 8
   waitForShootMinTime: 0.4
   waitForShootMaxTime: 0.9

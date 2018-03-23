@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Tank
   m_EditorClassIdentifier: Assembly-CSharp::TankParams
-  minSpeed: 0.5
+  minSpeed: 1
   maxSpeed: 1
-  aimRadius: 30
+  aimRadius: 25
   waitForShootMinTime: 2
   waitForShootMaxTime: 4
   hitRadius: 3
@@ -30,7 +30,7 @@ MonoBehaviour:
   hitpoints: 40
   damage: 5
   minShootError: 0
-  maxShootError: 5
-  explosionRadius: 3
+  maxShootError: 3
+  explosionRadius: 4
   explosionPrefab: {fileID: 1331457781977178, guid: e775cc477dfa72046b39e5824e856ec1,
     type: 2}

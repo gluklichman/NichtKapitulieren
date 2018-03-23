@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: BazookaParams
+  m_EditorClassIdentifier: Assembly-CSharp::TankParams
+  minSpeed: 1
+  maxSpeed: 1.5
+  aimRadius: 30
+  waitForShootMinTime: 4
+  waitForShootMaxTime: 6
+  hitRadius: 4
+  deathPrefabPlayer: {fileID: 0}
+  deathPrefabEnemy: {fileID: 0}
+  moralCheckRadius: 5
+  baseMorale: 30
+  moralBreakValue: 10
+  moralBreakMorale: -25
+  minMoralBreakSpeed: 1.5
+  maxMoralBreakSpeed: 2.5
+  hitpoints: 1
+  damage: 10
+  minShootError: 1
+  maxShootError: 2
+  explosionRadius: 1
+  explosionPrefab: {fileID: 1331457781977178, guid: e775cc477dfa72046b39e5824e856ec1,
+    type: 2}

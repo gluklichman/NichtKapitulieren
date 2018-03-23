@@ -11,6 +11,7 @@ public enum UnitOwner
 public enum UnitType
 {
     SOLDIER,
+	BAZOOKA,
     TANK
 }
 
@@ -62,6 +63,7 @@ public class Unit : MonoBehaviour {
     public void InitUnit(UnitOwner owner)
     {
         this.owner = owner;
+
         if (aimComponent == null)
         {
             aimComponent = gameObject.AddComponent<UnitAimComponent>();
@@ -69,18 +71,18 @@ public class Unit : MonoBehaviour {
         aimComponent.Init(this);
         moralComponent = gameObject.AddComponent<UnitMoralComponent>();
 
-        if (owner == UnitOwner.PLAYER)
-        {
-            transform.Find("SpriteEnemy").gameObject.SetActive(false);
-            transform.Find("SpritePlayer").gameObject.SetActive(true);
-            transform.Find("SpritePlayer/shotFire").gameObject.SetActive(false);
-        }
-        else
-        {
-            transform.Find("SpriteEnemy").gameObject.SetActive(true);
-            transform.Find("SpriteEnemy/shotFire").gameObject.SetActive(false);
-            transform.Find("SpritePlayer").gameObject.SetActive(false);
-        }
+		if (owner == UnitOwner.PLAYER)
+		{
+				transform.Find("SpriteEnemy").gameObject.SetActive(false);
+				transform.Find("SpritePlayer").gameObject.SetActive(true);
+				transform.Find("SpritePlayer/shotFire").gameObject.SetActive(false);
+		}
+		else
+		{
+				transform.Find("SpriteEnemy").gameObject.SetActive(true);
+				transform.Find("SpriteEnemy/shotFire").gameObject.SetActive(false);
+				transform.Find("SpritePlayer").gameObject.SetActive(false);
+		}
         soldierSprite = transform.GetComponentInChildren<SoldierSprite>();
         hitpoint = GetParams().hitpoints;
 
