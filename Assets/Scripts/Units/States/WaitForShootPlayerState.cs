@@ -8,6 +8,7 @@ public class WaitForShootPlayerState : BaseUnitState
 
     public WaitForShootPlayerState(Unit unit) : base(UnitStateType.SHOOT_WAIT, unit)
     {
+        unit.soldierSprite.SwitchImage(unit.soldierSprite.shootSprite);
         waitStartTime = Time.timeSinceLevelLoad;
         waitTime = unit.GetParams().GetRandomWaitForShootTime();
     }

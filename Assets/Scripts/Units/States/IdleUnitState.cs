@@ -11,6 +11,7 @@ public class IdleUnitState : BaseUnitState
     {
         unit.unitCollider.enabled = false;
         unit.aimComponent.enabled = false;
+        unit.soldierSprite.SwitchImage(unit.soldierSprite.runSprite);
         unit.transform.Find("SpriteEnemy/shotFire").gameObject.SetActive(false);
         unit.transform.Find("SpritePlayer/shotFire").gameObject.SetActive(false);
 

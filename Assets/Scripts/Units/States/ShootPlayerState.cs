@@ -9,6 +9,7 @@ public class ShootPlayerState : BaseUnitState
 
     public ShootPlayerState(Unit unit) : base(UnitStateType.SHOOT, unit)
     {
+        unit.soldierSprite.SwitchImage(unit.soldierSprite.shootSprite);
         GetShotFire().SetActive(true);
     }
 

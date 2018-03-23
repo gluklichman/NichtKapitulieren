@@ -226,6 +226,7 @@
     <Compile Include="Assets\Scripts\Graphics\SolidColorFill.cs" />
     <Compile Include="Assets\Scripts\Graphics\Triangulator.cs" />
     <Compile Include="Assets\Scripts\AreaHitComponent.cs" />
+    <Compile Include="Assets\Scripts\Units\SoldierSprite.cs" />
     <Compile Include="Assets\Scripts\Units\States\MoralBreakUnitState.cs" />
     <Compile Include="Assets\Scripts\Units\UnitMoralComponent.cs" />
     <Compile Include="Assets\Scripts\Units\SoldierDeathAnimation.cs" />

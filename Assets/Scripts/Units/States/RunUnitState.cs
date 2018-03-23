@@ -6,7 +6,8 @@ public class RunUnitState : BaseUnitState
 	private float moveSpeed = 0;
 
     public RunUnitState(Unit unit) : base(UnitStateType.RUN, unit)
-    {		
+    {
+        unit.soldierSprite.SwitchImage(unit.soldierSprite.runSprite);
 		moveSpeed = unit.GetParams().minSpeed + Random.Range((float)unit.GetParams().minSpeed, (float)unit.GetParams().maxSpeed);
 	}
 
