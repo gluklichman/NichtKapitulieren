@@ -5,7 +5,8 @@ public enum UnitStateType
     RUN,
     SHOOT,
     SHOOT_WAIT,
-    IDLE
+    IDLE,
+    MORAL_BREAK
 }
 
 public class BaseUnitState

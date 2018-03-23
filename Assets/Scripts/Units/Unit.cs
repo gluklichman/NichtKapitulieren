@@ -21,6 +21,7 @@ public class Unit : MonoBehaviour {
     UnitParams unitParams = null;
 
     public UnitAimComponent aimComponent = null;
+    public UnitMoralComponent moralComponent = null;
     public BoxCollider2D unitCollider = null;
 
     public Action<Unit> unitDestroyed;
@@ -56,6 +57,7 @@ public class Unit : MonoBehaviour {
             aimComponent = gameObject.AddComponent<UnitAimComponent>();
         }
         aimComponent.Init(this);
+        moralComponent = gameObject.AddComponent<UnitMoralComponent>();
 
         if (owner == UnitOwner.PLAYER)
         {
@@ -109,8 +111,8 @@ public class Unit : MonoBehaviour {
         }
         unitState = null;
         aimComponent.Deinit();
+        Destroy(moralComponent);
 
-        //GameObject deathAnimation
         if (animation)
         {
             CreateDeathAnimation();
