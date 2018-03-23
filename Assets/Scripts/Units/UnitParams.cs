@@ -16,4 +16,7 @@ public class UnitParams : ScriptableObject
     }
 
     public float hitRadius = 1;
+
+    public GameObject deathPrefabPlayer;
+    public GameObject deathPrefabEnemy;
 }

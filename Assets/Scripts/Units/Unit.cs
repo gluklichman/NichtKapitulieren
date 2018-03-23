@@ -10,6 +10,9 @@ public enum UnitOwner
 
 public class Unit : MonoBehaviour {
 
+    public static int ID = 0;
+    public int uniqueID = 0;
+
     [SerializeField]
     protected UnitOwner owner = UnitOwner.PLAYER;
     protected BaseUnitState unitState = null;
@@ -27,6 +30,9 @@ public class Unit : MonoBehaviour {
         unitCollider = GetComponent<BoxCollider2D>();
         Debug.Assert(unitParams);
         SetState(new RunUnitState(this), unitState);
+
+        uniqueID = ID;
+        ID++;
 	}
 	
 	// Update is called once per frame
@@ -38,7 +44,7 @@ public class Unit : MonoBehaviour {
         if (transform.position.x < GlobalConstants.leftFieldBorder
             || transform.position.x > GlobalConstants.rightFieldBorder)
         {
-            DestroyUnit();
+            DestroyUnit(false);
         }
 	}
 
@@ -95,14 +101,29 @@ public class Unit : MonoBehaviour {
         return unitParams;
     }
 
-    public void DestroyUnit()
+    public void DestroyUnit(bool animation)
     {
+        Debug.Log("Destroy unit " + uniqueID);
         if (unitDestroyed != null)
         {
             unitDestroyed(this);
         }
         unitState = null;
         aimComponent.Deinit();
+
+        //GameObject deathAnimation
+        if (animation)
+        {
+            CreateDeathAnimation();
+        }
+
         UnitPool.Instance.ReturnUnitToPool(this);
+    }
+
+    private void CreateDeathAnimation()
+    {
+        GameObject deathPrefab = (owner == UnitOwner.PLAYER) ? GetParams().deathPrefabPlayer : GetParams().deathPrefabEnemy;
+        GameObject instance = Instantiate(deathPrefab) as GameObject;
+        instance.transform.position = transform.position;
     }
 }
