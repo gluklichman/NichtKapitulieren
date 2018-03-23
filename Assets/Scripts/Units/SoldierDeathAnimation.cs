@@ -11,7 +11,7 @@ public class SoldierDeathAnimation : MonoBehaviour
 
 	private AudioSource audioSource;
 	private GameObject audioSourceObject;
-	private AudioManager am;
+	private DeathSounds am;
 
 	private Transform spriteTransform = null;
     private Transform bloodTransform = null;
@@ -24,9 +24,9 @@ public class SoldierDeathAnimation : MonoBehaviour
         if (bloodTransform)
             bloodTransform.gameObject.SetActive(false);
 
-		audioSourceObject = GameObject.Find("AudioManager");
+		audioSourceObject = GameObject.Find("Audio_DeathSounds");
 		audioSource = audioSourceObject.GetComponent<AudioSource>();
-		am = audioSourceObject.GetComponent<AudioManager>();
+		am = audioSourceObject.GetComponent<DeathSounds>();
 
 		if (!audioSource.isPlaying)
 		{

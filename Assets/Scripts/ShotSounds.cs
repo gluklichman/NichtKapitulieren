@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour {
-	public AudioClip[] deathSounds;
+public class ShotSounds : MonoBehaviour {
 	public AudioClip[] shotSounds;
 
 	private AudioSource audioSource;
 
 	// Use this for initialization
-	void Start () {
+	void Start()
+	{
 		audioSource = gameObject.GetComponent<AudioSource>();
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-		
+	void Update()
+	{
+
 	}
 }

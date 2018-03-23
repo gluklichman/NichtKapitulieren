@@ -5,7 +5,7 @@ public class ShootPlayerState : BaseUnitState
 {
     private bool shootPerformed = false;
 	private AudioSource audioSource;
-	private AudioManager am;
+	private ShotSounds am;
 	private GameObject audioSourceObject;
 
 	private float waitAfterShoot = 0.05f;
@@ -44,14 +44,14 @@ public class ShootPlayerState : BaseUnitState
             Shoot();
             shootPerformed = true;
 
-			audioSourceObject = GameObject.Find("AudioManager");
+			audioSourceObject = GameObject.Find("Audio_ShotSounds");
 			audioSource = audioSourceObject.GetComponent<AudioSource>();
-			am = audioSourceObject.GetComponent<AudioManager>();
+			am = audioSourceObject.GetComponent<ShotSounds>();
 
 			if (!audioSource.isPlaying)
 			{
-				int rndIndex = Random.Range(0, am.deathSounds.Length - 1);
-				audioSource.clip = am.deathSounds[rndIndex];
+				int rndIndex = Random.Range(0, am.shotSounds.Length - 1);
+				audioSource.clip = am.shotSounds[rndIndex];
 				audioSource.Play();
 			}
 		}
