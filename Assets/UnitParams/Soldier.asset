@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c73bec8df356294c86be0965ae54c5c, type: 3}
   m_Name: Soldier
   m_EditorClassIdentifier: 
-  minSpeed: 4
-  maxSpeed: 5
-  aimRadius: 9
+  minSpeed: 1
+  maxSpeed: 1.5
+  aimRadius: 10
   waitForShootMinTime: 0.4
   waitForShootMaxTime: 0.9
   hitRadius: 2.5
