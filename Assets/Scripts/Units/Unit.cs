@@ -22,6 +22,7 @@ public class Unit : MonoBehaviour {
 
     public UnitAimComponent aimComponent = null;
     public UnitMoralComponent moralComponent = null;
+    public SoldierSprite soldierSprite = null;
     public BoxCollider2D unitCollider = null;
 
     public Action<Unit> unitDestroyed;
@@ -30,7 +31,7 @@ public class Unit : MonoBehaviour {
 	void Awake () {
         unitCollider = GetComponent<BoxCollider2D>();
         Debug.Assert(unitParams);
-        SetState(new RunUnitState(this), unitState);
+        //SetState(new RunUnitState(this), unitState);
 
         uniqueID = ID;
         ID++;
@@ -71,6 +72,7 @@ public class Unit : MonoBehaviour {
             transform.Find("SpriteEnemy/shotFire").gameObject.SetActive(false);
             transform.Find("SpritePlayer").gameObject.SetActive(false);
         }
+        soldierSprite = transform.GetComponentInChildren<SoldierSprite>();
 
         SetState(new RunUnitState(this), unitState);
     }

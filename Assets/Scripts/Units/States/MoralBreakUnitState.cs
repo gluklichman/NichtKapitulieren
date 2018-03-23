@@ -7,6 +7,7 @@ public class MoralBreakUnitState : BaseUnitState
 
     public MoralBreakUnitState(Unit unit) : base(UnitStateType.MORAL_BREAK, unit)
     {
+        unit.soldierSprite.SwitchImage(unit.soldierSprite.runSprite);
         moveSpeed = Random.Range(unit.GetParams().minMoralBreakSpeed, unit.GetParams().maxMoralBreakSpeed);
         unit.transform.Rotate(0, 180, 0);
     }
