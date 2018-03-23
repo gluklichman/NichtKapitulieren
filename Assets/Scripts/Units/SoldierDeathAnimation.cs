@@ -4,13 +4,14 @@ using System.Collections;
 public class SoldierDeathAnimation : MonoBehaviour
 {
     public UnitOwner owner = UnitOwner.ENEMY;
-	public AudioClip[] deathCry;
 
     private const float ROTATION_SPEED = 180;
     private float rotationTime = 0.5f;
     private float layTime = 0.5f;
 
 	private AudioSource audioSource;
+	private GameObject audioSourceObject;
+	private AudioManager am;
 
 	private Transform spriteTransform = null;
     private Transform bloodTransform = null;
@@ -22,11 +23,14 @@ public class SoldierDeathAnimation : MonoBehaviour
         bloodTransform = transform.Find("blood");
         bloodTransform.gameObject.SetActive(false);
 
-		audioSource = gameObject.GetComponent<AudioSource>();
+		audioSourceObject = GameObject.Find("AudioManager");
+		audioSource = audioSourceObject.GetComponent<AudioSource>();
+		am = audioSourceObject.GetComponent<AudioManager>();
+
 		if (!audioSource.isPlaying)
 		{
-			int rndIndex = Random.Range(0, deathCry.Length - 1);
-			audioSource.clip = deathCry[rndIndex];
+			int rndIndex = Random.Range(0, am.sounds.Length - 1);
+			audioSource.clip = am.sounds[rndIndex];
 			audioSource.Play();
 		}
 
