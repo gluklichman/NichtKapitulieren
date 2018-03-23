@@ -11,23 +11,23 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Tank
   m_EditorClassIdentifier: Assembly-CSharp::TankParams
-  minSpeed: 2.5
-  maxSpeed: 3
-  aimRadius: 20
-  waitForShootMinTime: 0.4
-  waitForShootMaxTime: 0.9
-  hitRadius: 2.5
+  minSpeed: 0.5
+  maxSpeed: 1
+  aimRadius: 30
+  waitForShootMinTime: 2
+  waitForShootMaxTime: 4
+  hitRadius: 3
   deathPrefabPlayer: {fileID: 1741062824780790, guid: 3d8cc0651301c0547acaa8f59b3e2bb3,
     type: 2}
   deathPrefabEnemy: {fileID: 1699971056205274, guid: d7f7745ae85297d409a3060b6b573b37,
     type: 2}
   moralCheckRadius: 10
-  baseMorale: 100
+  baseMorale: 200
   moralBreakValue: -10000
   moralBreakMorale: -25
   minMoralBreakSpeed: 1.5
   maxMoralBreakSpeed: 1.5
-  hitpoints: 100
+  hitpoints: 40
   damage: 5
   minShootError: 0
   maxShootError: 5
