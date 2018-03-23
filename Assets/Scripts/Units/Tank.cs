@@ -7,4 +7,9 @@ public class Tank : Unit
     {
         UnitPool.Instance.ReturnTankToPool(this);
     }
+
+    public override BaseDamageComponent GetDamageComponent()
+    {
+        return new TankSplashDamage();
+    }
 }

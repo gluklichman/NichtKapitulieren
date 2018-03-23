@@ -149,4 +149,9 @@ public class Unit : MonoBehaviour {
         instance.transform.position = transform.position;
         instance.transform.Translate(0, 0, 1);
     }
+
+    public virtual BaseDamageComponent GetDamageComponent()
+    {
+        return new SimpleDamage();
+    }
 }

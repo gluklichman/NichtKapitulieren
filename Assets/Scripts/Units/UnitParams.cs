@@ -32,3 +32,13 @@ public class UnitParams : ScriptableObject
     public int damage = 0;
 
 }
+
+[CreateAssetMenu(fileName = "UnitParams", menuName = "Unit/Tank")]
+public class TankParams : UnitParams
+{
+    public float minShootError = 0.0f;
+    public float maxShootError = 5.0f;
+    public float explosionRadius = 3.0f;
+
+    public GameObject explosionPrefab = null;
+}

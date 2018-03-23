@@ -19,21 +19,8 @@ public class ShootPlayerState : BaseUnitState
     private void Shoot()
     {
         List<Unit> possibleAims = unit.aimComponent.GetPossibleAims();
-        if (possibleAims.Count > 0)
-        {
-            System.Random rand = new System.Random();
-            int index = rand.Next(possibleAims.Count - 1);
-
-            Unit aim = possibleAims[index];
-            
-            Vector2 aimCenter = aim.transform.position;
-            float radius = unit.GetParams().hitRadius;
-            Vector2 point = Random.insideUnitCircle * radius + aimCenter;
-            if (aim.unitCollider.bounds.Contains(point))
-            {
-                aim.DealDamage(unit.GetParams().damage);
-            }
-        }
+        BaseDamageComponent damage = unit.GetDamageComponent();
+        damage.DealDamage(possibleAims, unit);
     }
 
     public override void HandleUpdate()
