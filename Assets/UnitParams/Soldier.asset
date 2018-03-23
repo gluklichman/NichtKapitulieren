@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpeed: 1
   maxSpeed: 1.5
-  aimRadius: 5
-  waitForShootMinTime: 0.3
-  waitForShootMaxTime: 0.6
+  aimRadius: 9
+  waitForShootMinTime: 0.4
+  waitForShootMaxTime: 0.9
   hitRadius: 2.5
   deathPrefabPlayer: {fileID: 1835210610628528, guid: a2bb0ff8ef3db494da4655ef5014de82,
     type: 2}
