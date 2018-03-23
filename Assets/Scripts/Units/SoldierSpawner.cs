@@ -49,9 +49,14 @@ public class SoldierSpawner : MonoBehaviour
         }
         else
         {
+            if (Owner == UnitOwner.ENEMY)
+            {
+                Debug.Log(Time.timeSinceLevelLoad - lastWaveTime);
+            }
             if (Time.timeSinceLevelLoad - lastWaveTime > waveLength)
             {
                 lastWaveTime = Time.timeSinceLevelLoad;
+                lastSpawnTime = Time.timeSinceLevelLoad - periodBetweenUnits;
                 isWave = true;
             }
         }
@@ -72,6 +77,7 @@ public class SoldierSpawner : MonoBehaviour
         }
         else
         {
+            Debug.Log("spawn enemy " + instance.uniqueID);
             instance.transform.SetParent(enemyUnitsContainer);
         }
     }

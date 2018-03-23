@@ -61,6 +61,7 @@ public class UnitPool : MonoBehaviour
     {
         unit.unitCollider.enabled = false;
         unit.enabled = false;
+        unit.transform.rotation = Quaternion.identity;
         
         if (_pool.Count <= MAX_POOL_SIZE)
         {

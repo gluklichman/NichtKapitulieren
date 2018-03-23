@@ -27,7 +27,8 @@ public class ShootPlayerState : BaseUnitState
             Vector2 point = Random.insideUnitCircle * radius + aimCenter;
             if (aim.unitCollider.bounds.Contains(point))
             {
-                aim.DestroyUnit();
+                //aim.SetState(new DeathUnitState(aim), aim.GetUnitState());
+                aim.DestroyUnit(true);
                 //possibleAims.RemoveAt(index);
             }
         }

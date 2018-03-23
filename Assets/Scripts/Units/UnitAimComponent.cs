@@ -47,7 +47,8 @@ public class UnitAimComponent : MonoBehaviour
         Unit otherUnit = collision.GetComponent<Unit>();
         if (otherUnit != null
             && otherUnit.GetOwner() != unit.GetOwner()
-            && collision == otherUnit.unitCollider)
+            && collision == otherUnit.unitCollider
+            && otherUnit.GetUnitState().GetStateType() != UnitStateType.DEAD)
         {
             otherUnit.unitDestroyed += OnUnitDestroyed;
             possibleAims.Add(otherUnit);

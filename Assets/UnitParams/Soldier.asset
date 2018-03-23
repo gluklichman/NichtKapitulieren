@@ -17,3 +17,7 @@ MonoBehaviour:
   waitForShootMinTime: 0.3
   waitForShootMaxTime: 0.6
   hitRadius: 2.5
+  deathPrefabPlayer: {fileID: 1835210610628528, guid: a2bb0ff8ef3db494da4655ef5014de82,
+    type: 2}
+  deathPrefabEnemy: {fileID: 1658974767796260, guid: 007f2a110283e484180ef891d14bf680,
+    type: 2}
