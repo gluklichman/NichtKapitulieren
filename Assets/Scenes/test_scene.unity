@@ -657,6 +657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1191417751}
   - component: {fileID: 1191417750}
+  - component: {fileID: 1191417752}
   m_Layer: 0
   m_Name: SpawnEnemy
   m_TagString: Untagged
@@ -695,6 +696,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1191417752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1191417749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac46ee83a456d345bbd3c903fa35832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hits: 20
 --- !u!1 &1198834263
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,6 +717,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1198834264}
   - component: {fileID: 1198834265}
+  - component: {fileID: 1198834266}
   m_Layer: 0
   m_Name: SpawnPlayer
   m_TagString: Untagged
@@ -742,6 +756,18 @@ MonoBehaviour:
   spawnPositionX: -35
   spawnAreaTop: 10
   spawnAreaBottom: -20
+--- !u!114 &1198834266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1198834263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac46ee83a456d345bbd3c903fa35832, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hits: 20
 --- !u!1 &1384593299
 GameObject:
   m_ObjectHideFlags: 0
