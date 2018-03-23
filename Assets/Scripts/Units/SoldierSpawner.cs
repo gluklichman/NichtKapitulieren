@@ -33,6 +33,11 @@ public class SoldierSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonUp(0)
+            && Owner == UnitOwner.PLAYER)
+        {
+            SpawnTank();
+        }
         if (isWave)
         {
             if (Time.timeSinceLevelLoad - lastSpawnTime > periodBetweenUnits)
@@ -81,7 +86,25 @@ public class SoldierSpawner : MonoBehaviour
         Gizmos.color = Color.red;
         float height = spawnAreaTop - spawnAreaBottom;
         float center = spawnAreaBottom + height / 2;
-        Gizmos.DrawWireCube(new Vector3(spawnPositionX, center, 0), new Vector3(1, height, 1));
-                
+        Gizmos.DrawWireCube(new Vector3(spawnPositionX, center, 0), new Vector3(1, height, 1));       
+    }
+
+    void SpawnTank()
+    {
+        Unit instance = UnitPool.Instance.GetTankFromPool();
+        instance.InitUnit(Owner);
+        instance.GetComponent<BoxCollider2D>().enabled = true;
+        
+        float posY = Random.Range(spawnAreaBottom, spawnAreaTop);
+        instance.transform.position = new Vector3(spawnPositionX, posY, 0);
+
+        if (Owner == UnitOwner.PLAYER)
+        {
+            instance.transform.SetParent(playerUnitsContainer);
+        }
+        else
+        {
+            instance.transform.SetParent(enemyUnitsContainer);
+        }
     }
 }

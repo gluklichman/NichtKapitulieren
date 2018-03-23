@@ -28,4 +28,7 @@ public class UnitParams : ScriptableObject
     public float minMoralBreakSpeed = 1.5f;
     public float maxMoralBreakSpeed = 2.5f;
 
+    public int hitpoints = 0;
+    public int damage = 0;
+
 }

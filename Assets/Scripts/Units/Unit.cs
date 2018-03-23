@@ -27,6 +27,9 @@ public class Unit : MonoBehaviour {
 
     public Action<Unit> unitDestroyed;
 
+    [SerializeField]
+    private int hitpoint = 0;
+
 	// Use this for initialization
 	void Awake () {
         unitCollider = GetComponent<BoxCollider2D>();
@@ -73,6 +76,7 @@ public class Unit : MonoBehaviour {
             transform.Find("SpritePlayer").gameObject.SetActive(false);
         }
         soldierSprite = transform.GetComponentInChildren<SoldierSprite>();
+        hitpoint = GetParams().hitpoints;
 
         SetState(new RunUnitState(this), unitState);
     }
@@ -105,6 +109,15 @@ public class Unit : MonoBehaviour {
         return unitParams;
     }
 
+    public void DealDamage(int damage)
+    {
+        hitpoint -= damage;
+        if (hitpoint <= 0)
+        {
+            DestroyUnit(true);
+        }
+    }
+
     public void DestroyUnit(bool animation)
     {
         if (unitDestroyed != null)
@@ -120,6 +133,12 @@ public class Unit : MonoBehaviour {
             CreateDeathAnimation();
         }
 
+        DestroyInstance();
+        //UnitPool.Instance.ReturnUnitToPool(this);
+    }
+
+    protected virtual void DestroyInstance()
+    {
         UnitPool.Instance.ReturnUnitToPool(this);
     }
 

@@ -18,6 +18,7 @@ public class UnitPool : MonoBehaviour
     private static Vector3 POOL_POSITION = new Vector3(-1000, -1000);
 
     public GameObject UnitPrefab = null;
+    public GameObject TankPrefab = null;
 
     // Use this for initialization
     void Awake()
@@ -74,5 +75,16 @@ public class UnitPool : MonoBehaviour
             Destroy(unit.gameObject);
         }
         
+    }
+
+    public Unit GetTankFromPool()
+    {
+        GameObject instance = Instantiate(TankPrefab) as GameObject;
+        return instance.GetComponent<Unit>();
+    }
+
+    public void ReturnTankToPool(Unit unit)
+    {
+        Destroy(unit.gameObject);
     }
 }

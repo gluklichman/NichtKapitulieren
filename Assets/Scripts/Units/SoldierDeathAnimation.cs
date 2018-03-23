@@ -21,7 +21,8 @@ public class SoldierDeathAnimation : MonoBehaviour
     {
         spriteTransform = transform.Find("Sprite");
         bloodTransform = transform.Find("blood");
-        bloodTransform.gameObject.SetActive(false);
+        if (bloodTransform)
+            bloodTransform.gameObject.SetActive(false);
 
 		audioSourceObject = GameObject.Find("AudioManager");
 		audioSource = audioSourceObject.GetComponent<AudioSource>();
@@ -47,11 +48,15 @@ public class SoldierDeathAnimation : MonoBehaviour
         }
         else if (layTime > 0)
         {
-            bloodTransform.gameObject.SetActive(true);
+            if (bloodTransform)
+            {
+                bloodTransform.gameObject.SetActive(true);
+            }
             layTime -= Time.deltaTime;
         }
         else
         {
+            //spriteTransform.GetComponent<SpriteRenderer>().enabled = false;
 			Destroy(gameObject);
 		}
     }

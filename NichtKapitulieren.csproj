@@ -221,23 +221,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AreaHitComponent.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\GlobalConstants.cs" />
     <Compile Include="Assets\Scripts\Graphics\MeshColliderFill.cs" />
     <Compile Include="Assets\Scripts\Graphics\SolidColorFill.cs" />
     <Compile Include="Assets\Scripts\Graphics\Triangulator.cs" />
-    <Compile Include="Assets\Scripts\AreaHitComponent.cs" />
-    <Compile Include="Assets\Scripts\Units\SoldierSprite.cs" />
-    <Compile Include="Assets\Scripts\Units\States\MoralBreakUnitState.cs" />
-    <Compile Include="Assets\Scripts\Units\UnitMoralComponent.cs" />
+    <Compile Include="Assets\Scripts\Units\Tank.cs" />
     <Compile Include="Assets\Scripts\Units\SoldierDeathAnimation.cs" />
-    <Compile Include="Assets\Scripts\Units\States\IdleUnitState.cs" />
-    <Compile Include="Assets\Scripts\Units\States\WaitForShootPlayerState.cs" />
-    <Compile Include="Assets\Scripts\Units\States\ShootPlayerState.cs" />
-    <Compile Include="Assets\Scripts\Units\UnitAimComponent.cs" />
     <Compile Include="Assets\Scripts\Units\SoldierSpawner.cs" />
+    <Compile Include="Assets\Scripts\Units\SoldierSprite.cs" />
     <Compile Include="Assets\Scripts\Units\States\BaseUnitState.cs" />
+    <Compile Include="Assets\Scripts\Units\States\IdleUnitState.cs" />
+    <Compile Include="Assets\Scripts\Units\States\MoralBreakUnitState.cs" />
     <Compile Include="Assets\Scripts\Units\States\RunUnitState.cs" />
+    <Compile Include="Assets\Scripts\Units\States\ShootPlayerState.cs" />
+    <Compile Include="Assets\Scripts\Units\States\WaitForShootPlayerState.cs" />
     <Compile Include="Assets\Scripts\Units\Unit.cs" />
+    <Compile Include="Assets\Scripts\Units\UnitAimComponent.cs" />
+    <Compile Include="Assets\Scripts\Units\UnitMoralComponent.cs" />
     <Compile Include="Assets\Scripts\Units\UnitParams.cs" />
     <Compile Include="Assets\Scripts\Units\UnitPool.cs" />
   </ItemGroup>

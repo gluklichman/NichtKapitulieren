@@ -139,7 +139,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1b7fe58278ce2c34ead8c9323e810f16, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -672,6 +672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitPrefab: {fileID: 1348694921623772, guid: a3b6ee0a67ce1d9429096c07c79c1d05, type: 2}
+  TankPrefab: {fileID: 1321504228406144, guid: 30bebf7a97f7e0840800a282d3161568, type: 2}
 --- !u!4 &1384593301
 Transform:
   m_ObjectHideFlags: 0
@@ -744,7 +745,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
