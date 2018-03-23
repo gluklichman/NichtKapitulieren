@@ -10,27 +10,35 @@ public class BazookaSplashDamage : BaseDamageComponent
 
     public override void DealDamage(List<Unit> possibleAims, Unit unit)
     {
-        TankParams tankParams = unit.GetParams() as TankParams;
+        BazookaParams bazookaParams = unit.GetParams() as BazookaParams;
 
         if (possibleAims.Count == 0)
         {
             return;
         }
 
-        System.Random rand = new System.Random();
-        int index = rand.Next(possibleAims.Count - 1);
+		float maxX = 0;
+		int maxXindex = 0;
+		for (int i =0; i < possibleAims.Count; i++)
+		{
+			if (possibleAims[i].transform.position.x > maxX)
+			{
+				maxX = possibleAims[i].transform.position.x;
+				maxXindex = i;
+			}
+		}
 
-        Unit aim = possibleAims[index];
+        Unit aim = possibleAims[maxXindex];
 
         Vector2 aimCenter = aim.transform.position;
-        float radius = unit.GetParams().hitRadius;
-        Vector2 point = Random.insideUnitCircle * radius + aimCenter;
+       // float radius = unit.GetParams().hitRadius;
+       // Vector2 point = Random.insideUnitCircle * radius + aimCenter;
 
-        Vector2 radiusVector = (point - (Vector2)unit.transform.position).normalized;
-        float delta = Random.Range(tankParams.minShootError, tankParams.maxShootError);
-        Vector2 explosionPoint = point + radiusVector * delta;
+        //Vector2 radiusVector = (point - (Vector2)unit.transform.position).normalized;
+        //float delta = Random.Range(bazookaParams.minShootError, bazookaParams.maxShootError);
+        Vector2 explosionPoint = aimCenter;
 
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(explosionPoint, tankParams.explosionRadius, Vector2.zero);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(explosionPoint, bazookaParams.explosionRadius, Vector2.zero);
         foreach (RaycastHit2D hit in hits)
         {
             if (hit.collider == null)
@@ -50,7 +58,7 @@ public class BazookaSplashDamage : BaseDamageComponent
             target.DealDamage(unit.GetParams().damage);
         }
 
-        GameObject explosionInstance = GameObject.Instantiate(tankParams.explosionPrefab) as GameObject;
+        GameObject explosionInstance = GameObject.Instantiate(bazookaParams.explosionPrefab) as GameObject;
         explosionInstance.transform.position = explosionPoint;
     }
 }

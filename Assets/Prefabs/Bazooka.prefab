@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueID: 0
   owner: 0
-  unitParams: {fileID: 11400000, guid: 4e025f58fdb16094499d64ce5e290f90, type: 2}
+  unitParams: {fileID: 11400000, guid: 2886720406da66f4bad71325b99b0bc9, type: 2}
   aimComponent: {fileID: 0}
   moralComponent: {fileID: 0}
   soldierSprite: {fileID: 0}
