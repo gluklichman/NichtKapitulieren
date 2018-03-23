@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Name: Soldier
   m_EditorClassIdentifier: 
   minSpeed: 1
-  maxSpeed: 1.5
-  aimRadius: 10
+  maxSpeed: 2
+  aimRadius: 8
   waitForShootMinTime: 0.4
   waitForShootMaxTime: 0.9
-  hitRadius: 2.5
+  hitRadius: 4
   deathPrefabPlayer: {fileID: 1835210610628528, guid: a2bb0ff8ef3db494da4655ef5014de82,
     type: 2}
   deathPrefabEnemy: {fileID: 1658974767796260, guid: 007f2a110283e484180ef891d14bf680,
@@ -24,6 +24,6 @@ MonoBehaviour:
   moralCheckRadius: 5
   baseMorale: 50
   moralBreakValue: 10
-  moralBreakMorale: -25
-  minMoralBreakSpeed: 1.5
-  maxMoralBreakSpeed: 2
+  moralBreakMorale: -10
+  minMoralBreakSpeed: 2
+  maxMoralBreakSpeed: 3
