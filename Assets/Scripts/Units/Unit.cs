@@ -31,11 +31,15 @@ public class Unit : MonoBehaviour {
     public UnitMoralComponent moralComponent = null;
     public SoldierSprite soldierSprite = null;
     public BoxCollider2D unitCollider = null;
+	public float initialInvulnerabilityDuration = 6.0f;
 
-    public Action<Unit> unitDestroyed;
+	public Action<Unit> unitDestroyed;
 
     [SerializeField]
     private int hitpoint = 0;
+	private bool isInvulnerable = true;
+	private float unitInitTime = 0;
+	
 
 	// Use this for initialization
 	void Awake () {
@@ -46,6 +50,11 @@ public class Unit : MonoBehaviour {
         uniqueID = ID;
         ID++;
 	}
+
+	void Start() {
+		unitInitTime = Time.timeSinceLevelLoad;
+	}
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -58,6 +67,13 @@ public class Unit : MonoBehaviour {
         {
             DestroyUnit(false);
         }
+		if (isInvulnerable)
+		{
+			if (Time.timeSinceLevelLoad - unitInitTime > initialInvulnerabilityDuration)
+			{
+				isInvulnerable = false;
+			}
+		}
 	}
 
     public void InitUnit(UnitOwner owner)
@@ -132,6 +148,9 @@ public class Unit : MonoBehaviour {
 
     public void DealDamage(int damage)
     {
+		if (isInvulnerable) {
+			return;
+		}
         hitpoint -= damage;
         if (hitpoint <= 0)
         {
