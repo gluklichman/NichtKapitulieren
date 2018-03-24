@@ -78,15 +78,15 @@ public class UnitMoralComponent : MonoBehaviour
 				BolkonskyModeOn = false;
 				CurrentMorale = unit.GetParams().baseMorale;
 				unit.SetHP(1);
-				if (unit.GetOwner() == UnitOwner.PLAYER)
+				/*if (unit.GetOwner() == UnitOwner.PLAYER)
 				{
 					transform.Find("SpritePlayer").GetComponent<SpriteRenderer>().color = Color.white;
 				}
 				else
 				{
 					transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().color = Color.white;
-				}
-				//unit.soldierSprite.SwitchImage(unit.soldierSprite.runSprite);
+				}*/
+				unit.soldierSprite.SwitchImage(unit.soldierSprite.runSprite);
 			}
 		}
     }
@@ -135,6 +135,7 @@ public class UnitMoralComponent : MonoBehaviour
 		BolkonskyModeOn = true;
 		BolkonskyModeStartTime = Time.timeSinceLevelLoad;
 		unit.SetHP(5);
+		/*
 		if (unit.GetOwner() == UnitOwner.PLAYER)
 		{
 			transform.Find("SpritePlayer").GetComponent<SpriteRenderer>().color = Color.black;
@@ -142,8 +143,8 @@ public class UnitMoralComponent : MonoBehaviour
 		else
 		{
 			transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().color = Color.black;
-		}
-		//unit.soldierSprite.SwitchImage(unit.soldierSprite.bolkonskySprite);
+		}*/
+		unit.soldierSprite.SwitchImage(unit.soldierSprite.bolkonskySprite);
 
 	}
 
