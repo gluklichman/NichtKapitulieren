@@ -26,6 +26,7 @@ public class PlayerControls : MonoBehaviour
     public KeyCode soldiersButton;
     public KeyCode tankButton;
     public KeyCode grenadiersButton;
+    public KeyCode airplaneButton;
 
     // Use this for initialization
     void Start()
@@ -37,7 +38,8 @@ public class PlayerControls : MonoBehaviour
         {
             config.energyForSoldiers,
             config.energyForTank,
-            config.energyForGrenadiers
+            config.energyForGrenadiers,
+            config.energyForAirplane
         };
 
         currentEnergy = config.initialEnergy;
@@ -88,6 +90,10 @@ public class PlayerControls : MonoBehaviour
         else if (Input.GetKeyDown(grenadiersButton))
         {
             TrySpawnGrenadiers();
+        }
+        else if (Input.GetKeyDown(airplaneButton))
+        {
+            TrySpawnAirplane();
         }
     }
 
@@ -140,5 +146,16 @@ public class PlayerControls : MonoBehaviour
         currentEnergy -= config.energyForGrenadiers;
         UpdateProgress();
         spawner.SpawnGrenadiers(config.grenadiersCount);
+    }
+
+    private void TrySpawnAirplane()
+    {
+        if (currentEnergy < config.energyForAirplane)
+        {
+            return;
+        }
+        currentEnergy -= config.energyForAirplane;
+        UpdateProgress();
+        spawner.SpawnAirplane();
     }
 }

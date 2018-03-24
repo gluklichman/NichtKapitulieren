@@ -35,11 +35,11 @@ public class SoldierSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0)
+        /*if (Input.GetMouseButtonUp(0)
             && Owner == UnitOwner.PLAYER)
         {
             SpawnAirplane();
-        }
+        }*/
 
 
 		if (isWave)

@@ -18,3 +18,4 @@ MonoBehaviour:
   energyForTank: 60
   energyForGrenadiers: 10
   grenadiersCount: 3
+  energyForAirplane: 80
