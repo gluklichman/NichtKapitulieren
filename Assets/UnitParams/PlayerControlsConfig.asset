@@ -14,5 +14,7 @@ MonoBehaviour:
   initialEnergy: 0
   maxEnergy: 100
   oneEnergyRestoreTime: 0.5
-  energyForSoldiers: 20
+  energyForSoldiers: 30
   energyForTank: 60
+  energyForGrenadiers: 10
+  grenadiersCount: 3
