@@ -14,9 +14,10 @@ MonoBehaviour:
   initialEnergy: 25
   maxEnergy: 100
   oneEnergyRestoreTime: 0.5
+  energyBoostForEnemyUnit: 15
   energyForSoldiers: 15
   energyForTank: 50
   energyForGrenadiers: 25
-  grenadiersCount: 5
+  grenadiersCount: 6
   soldiersCount: 10
   energyForAirplane: 70
