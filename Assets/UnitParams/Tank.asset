@@ -27,7 +27,7 @@ MonoBehaviour:
   moralBreakMorale: -25
   minMoralBreakSpeed: 1.5
   maxMoralBreakSpeed: 1.5
-  hitpoints: 40
+  hitpoints: 30
   damage: 5
   minShootError: 0
   maxShootError: 3

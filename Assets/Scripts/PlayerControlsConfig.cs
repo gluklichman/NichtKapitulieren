@@ -12,4 +12,6 @@ public class PlayerControlsConfig : ScriptableObject
     [Header("SpellsConfig")]
     public int energyForSoldiers = 0;
     public int energyForTank = 0;
+    public int energyForGrenadiers = 0;
+    public int grenadiersCount = 0;
 }

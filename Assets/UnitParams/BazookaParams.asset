@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: BazookaParams
   m_EditorClassIdentifier: Assembly-CSharp::BazookaParams
-  minSpeed: 0.5
-  maxSpeed: 0.8
-  aimRadius: 15
-  waitForShootMinTime: 3
-  waitForShootMaxTime: 5
+  minSpeed: 4
+  maxSpeed: 7
+  aimRadius: 2
+  waitForShootMinTime: 0.2
+  waitForShootMaxTime: 0.3
   hitRadius: 4
   deathPrefabPlayer: {fileID: 1366648657374620, guid: 756434bdb65b61649b7d0447b52a62c1,
     type: 2}
@@ -23,14 +23,14 @@ MonoBehaviour:
     type: 2}
   moralCheckRadius: 6
   baseMorale: 30
-  moralBreakValue: 10
+  moralBreakValue: -10000
   moralBreakMorale: -25
-  minMoralBreakSpeed: 0.6
-  maxMoralBreakSpeed: 1
+  minMoralBreakSpeed: 4
+  maxMoralBreakSpeed: 5
   hitpoints: 1
-  damage: 5
-  minShootError: 1
-  maxShootError: 5
+  damage: 10
+  minShootError: 0
+  maxShootError: 2
   explosionRadius: 2
   explosionPrefab: {fileID: 1347902383156338, guid: d14b6183254efc3409d7808c838b045e,
     type: 2}

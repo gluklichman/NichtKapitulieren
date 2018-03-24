@@ -21,7 +21,7 @@ MonoBehaviour:
     type: 2}
   deathPrefabEnemy: {fileID: 1658974767796260, guid: 007f2a110283e484180ef891d14bf680,
     type: 2}
-  moralCheckRadius: 5
+  moralCheckRadius: 10
   baseMorale: 50
   moralBreakValue: 10
   moralBreakMorale: -10

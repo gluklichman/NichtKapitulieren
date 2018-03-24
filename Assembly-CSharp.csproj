@@ -67,6 +67,7 @@
      <Compile Include="Assets\Scripts\Units\Damage\BazookaSplashDamage.cs" />
      <Compile Include="Assets\Scripts\Units\Damage\SimpleDamage.cs" />
      <Compile Include="Assets\Scripts\Units\Damage\TankSplashDamage.cs" />
+     <Compile Include="Assets\Scripts\Units\GrenadesAimComponent.cs" />
      <Compile Include="Assets\Scripts\Units\SoldierDeathAnimation.cs" />
      <Compile Include="Assets\Scripts\Units\SoldierSpawner.cs" />
      <Compile Include="Assets\Scripts\Units\SoldierSprite.cs" />

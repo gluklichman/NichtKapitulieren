@@ -131,4 +131,26 @@ public class SoldierSpawner : MonoBehaviour
             instance.transform.SetParent(enemyUnitsContainer);
         }
     }
+
+    public void SpawnGrenadiers(int count)
+    {
+        for (int i=0; i<count; ++i)
+        {
+            Unit instance = UnitPool.Instance.GetBazookaFromPool();
+            instance.InitUnit(Owner);
+            instance.GetComponent<BoxCollider2D>().enabled = true;
+
+            float posY = Random.Range(spawnAreaBottom, spawnAreaTop);
+            instance.transform.position = new Vector3(spawnPositionX, posY, 0);
+
+            if (Owner == UnitOwner.PLAYER)
+            {
+                instance.transform.SetParent(playerUnitsContainer);
+            }
+            else
+            {
+                instance.transform.SetParent(enemyUnitsContainer);
+            }
+        }
+    }
 }
