@@ -31,7 +31,7 @@ public class Unit : MonoBehaviour {
     public UnitMoralComponent moralComponent = null;
     public SoldierSprite soldierSprite = null;
     public BoxCollider2D unitCollider = null;
-	public float initialInvulnerabilityDuration = 6.0f;
+	public float initialInvulnerabilityDuration = 4.0f;
 
 	public Action<Unit> unitDestroyed;
 

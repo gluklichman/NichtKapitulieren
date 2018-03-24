@@ -241,6 +241,7 @@ MonoBehaviour:
   moralComponent: {fileID: 0}
   soldierSprite: {fileID: 0}
   unitCollider: {fileID: 0}
+  initialInvulnerabilityDuration: 4
   hitpoint: 0
 --- !u!114 &114542923855075702
 MonoBehaviour:
