@@ -79,11 +79,12 @@ public class PlayerControls : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(soldiersButton))
-        {
-            TrySpawnSoldiers();
-        }
-        else if (Input.GetKeyDown(tankButton))
+		if (Input.GetKeyDown(soldiersButton))
+		 {
+			 TrySpawnSoldiers();
+		 }
+		 else
+		if (Input.GetKeyDown(tankButton))
         {
             TrySpawnTank();
         }

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialEnergy: 0
   maxEnergy: 100
-  oneEnergyRestoreTime: 0.5
+  oneEnergyRestoreTime: 1
   energyForSoldiers: 30
   energyForTank: 60
-  energyForGrenadiers: 10
-  grenadiersCount: 3
+  energyForGrenadiers: 20
+  grenadiersCount: 5
   energyForAirplane: 80

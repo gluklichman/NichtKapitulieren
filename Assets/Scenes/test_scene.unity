@@ -1196,10 +1196,10 @@ MonoBehaviour:
   - {fileID: 1547587926}
   - {fileID: 1937757347}
   - {fileID: 1462479397}
-  soldiersButton: 117
+  soldiersButton: 111
   tankButton: 105
-  grenadiersButton: 111
-  airplaneButton: 112
+  grenadiersButton: 112
+  airplaneButton: 117
 --- !u!1 &942315176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,9 +1321,9 @@ MonoBehaviour:
   - {fileID: 329893050}
   - {fileID: 679619624}
   - {fileID: 584075760}
-  soldiersButton: 113
-  tankButton: 119
-  grenadiersButton: 101
+  soldiersButton: 119
+  tankButton: 101
+  grenadiersButton: 113
   airplaneButton: 114
 --- !u!1 &978535675
 GameObject:
