@@ -5,8 +5,9 @@ public class SoldierSprite : MonoBehaviour
 {
     public Sprite runSprite = null;
     public Sprite shootSprite = null;
+	public Sprite bolkonskySprite = null;
 
-    public void SwitchImage(Sprite sprite)
+	public void SwitchImage(Sprite sprite)
     {
         GetComponent<SpriteRenderer>().sprite = sprite;
     }
