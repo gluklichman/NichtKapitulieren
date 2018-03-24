@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSprite: {fileID: 21300000, guid: 4d54174a14a03074d8eec67997baf480, type: 3}
   shootSprite: {fileID: 21300000, guid: 4d54174a14a03074d8eec67997baf480, type: 3}
+  bolkonskySprite: {fileID: 0}
 --- !u!114 &114392689214419010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueID: 0
   owner: 0
-  unitParams: {fileID: 11400000, guid: 52e62cf1da6fe2848b21368f18c10c98, type: 2}
+  unitParams: {fileID: 11400000, guid: 62319ed2a7c7c754b87b0ed5d34d0d58, type: 2}
   aimComponent: {fileID: 0}
   moralComponent: {fileID: 0}
   soldierSprite: {fileID: 0}
@@ -254,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSprite: {fileID: 21300000, guid: ae5d37575e40e0d4ca3cd6ca1b3dbec6, type: 3}
   shootSprite: {fileID: 21300000, guid: ae5d37575e40e0d4ca3cd6ca1b3dbec6, type: 3}
+  bolkonskySprite: {fileID: 0}
 --- !u!212 &212262775696819924
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -40,8 +40,6 @@ public class Unit : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
         unitCollider = GetComponent<BoxCollider2D>();
-        Debug.Assert(unitParams);
-        //SetState(new RunUnitState(this), unitState);
 
         uniqueID = ID;
         ID++;

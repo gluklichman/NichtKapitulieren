@@ -19,7 +19,8 @@ public class SimpleDamage : BaseDamageComponent
         Vector2 aimCenter = aim.transform.position;
         float radius = unit.GetParams().hitRadius;
         Vector2 point = Random.insideUnitCircle * radius + aimCenter;
-        if (aim.unitCollider.bounds.Contains(point))
+        if (aim != null
+            && aim.unitCollider.bounds.Contains(point))
         {
             aim.DealDamage(unit.GetParams().damage);
         }
