@@ -117,6 +117,10 @@ public class UnitMoralComponent : MonoBehaviour
 
     private void StartMoralBreak()
     {
+        if (unit == null)
+        {
+            return;
+        }
         moralBreak = true;
         CurrentMorale = unit.GetParams().moralBreakMorale;
         unit.SetState(new MoralBreakUnitState(unit), unit.GetUnitState());
