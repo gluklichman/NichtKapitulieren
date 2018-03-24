@@ -131,6 +131,11 @@ public class Unit : MonoBehaviour {
         }
     }
 
+	public void SetHP(int hp)
+	{
+		hitpoint = hp;
+	}
+
     public void DestroyUnit(bool animation)
     {
         if (unitDestroyed != null)
