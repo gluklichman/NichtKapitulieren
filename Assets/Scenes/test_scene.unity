@@ -1149,6 +1149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 800738223}
   - component: {fileID: 800738224}
+  - component: {fileID: 800738225}
   m_Layer: 0
   m_Name: EnemyUI
   m_TagString: Untagged
@@ -1200,6 +1201,18 @@ MonoBehaviour:
   tankButton: 105
   grenadiersButton: 111
   airplaneButton: 112
+  aiDriven: 0
+--- !u!114 &800738225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 800738222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928efc647244e9f4ea4253a5792a8609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &942315176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1338,7 @@ MonoBehaviour:
   tankButton: 119
   grenadiersButton: 101
   airplaneButton: 114
+  aiDriven: 0
 --- !u!1 &978535675
 GameObject:
   m_ObjectHideFlags: 0
