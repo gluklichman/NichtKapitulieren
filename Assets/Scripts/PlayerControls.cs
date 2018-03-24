@@ -28,6 +28,8 @@ public class PlayerControls : MonoBehaviour
     public KeyCode grenadiersButton;
     public KeyCode airplaneButton;
 
+    public bool aiDriven = false;
+
     // Use this for initialization
     void Start()
     {
@@ -79,23 +81,36 @@ public class PlayerControls : MonoBehaviour
             }
         }
 
-		if (Input.GetKeyDown(soldiersButton))
-		 {
-			 TrySpawnSoldiers();
-		 }
-		 else
-		if (Input.GetKeyDown(tankButton))
+        if (!aiDriven)
         {
-            TrySpawnTank();
+            if (Input.GetKeyDown(soldiersButton))
+            {
+                TrySpawnSoldiers();
+            }
+            else if (Input.GetKeyDown(tankButton))
+            {
+                TrySpawnTank();
+            }
+            else if (Input.GetKeyDown(grenadiersButton))
+            {
+                TrySpawnGrenadiers();
+            }
+            else if (Input.GetKeyDown(airplaneButton))
+            {
+                TrySpawnAirplane();
+            }
         }
-        else if (Input.GetKeyDown(grenadiersButton))
-        {
-            TrySpawnGrenadiers();
-        }
-        else if (Input.GetKeyDown(airplaneButton))
-        {
-            TrySpawnAirplane();
-        }
+        
+    }
+
+    public int GetCurrentEnergy()
+    {
+        return currentEnergy;
+    }
+
+    public PlayerControlsConfig GetConfig()
+    {
+        return config;
     }
 
     private void UpdateProgress()
@@ -116,47 +131,51 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    private void TrySpawnTank()
+    public bool TrySpawnTank()
     {
         if (currentEnergy < config.energyForTank)
         {
-            return;
+            return false;
         }
         currentEnergy -= config.energyForTank;
         spawner.SpawnTank();
         UpdateProgress();
+        return true;
     }
 
-    private void TrySpawnSoldiers()
+    public bool TrySpawnSoldiers()
     {
         if (currentEnergy < config.energyForSoldiers)
         {
-            return;
+            return false;
         }
         currentEnergy -= config.energyForSoldiers;
         UpdateProgress();
         spawner.StartSpawnSoldiers();
+        return true;
     }
 
-    private void TrySpawnGrenadiers()
+    public bool TrySpawnGrenadiers()
     {
         if (currentEnergy < config.energyForGrenadiers)
         {
-            return;
+            return false;
         }
         currentEnergy -= config.energyForGrenadiers;
         UpdateProgress();
         spawner.SpawnGrenadiers(config.grenadiersCount);
+        return true;
     }
 
-    private void TrySpawnAirplane()
+    public bool TrySpawnAirplane()
     {
         if (currentEnergy < config.energyForAirplane)
         {
-            return;
+            return false;
         }
         currentEnergy -= config.energyForAirplane;
         UpdateProgress();
         spawner.SpawnAirplane();
+        return true;
     }
 }
