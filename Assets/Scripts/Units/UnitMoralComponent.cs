@@ -86,6 +86,7 @@ public class UnitMoralComponent : MonoBehaviour
 				{
 					transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().color = Color.white;
 				}
+				//unit.soldierSprite.SwitchImage(unit.soldierSprite.runSprite);
 			}
 		}
     }
@@ -142,6 +143,7 @@ public class UnitMoralComponent : MonoBehaviour
 		{
 			transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().color = Color.black;
 		}
+		//unit.soldierSprite.SwitchImage(unit.soldierSprite.bolkonskySprite);
 
 	}
 

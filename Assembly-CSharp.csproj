@@ -51,6 +51,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Airplane.cs" />
+     <Compile Include="Assets\Scripts\AirplaneParams.cs" />
      <Compile Include="Assets\Scripts\AreaHitComponent.cs" />
      <Compile Include="Assets\Scripts\DeathSounds.cs" />
      <Compile Include="Assets\Scripts\Explosion.cs" />
