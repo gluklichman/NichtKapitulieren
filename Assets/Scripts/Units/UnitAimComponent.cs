@@ -22,6 +22,10 @@ public class UnitAimComponent : MonoBehaviour
             aimRadius = gameObject.AddComponent<CircleCollider2D>();
         }
 
+        if (unit.GetParams() == null)
+        {
+            Debug.LogError("No unit params");
+        }
         aimRadius.enabled = true;
         aimRadius.isTrigger = true;
         aimRadius.radius = unit.GetParams().aimRadius + Random.Range(-0.3f*unit.GetParams().aimRadius, 0.3f*unit.GetParams().aimRadius);
