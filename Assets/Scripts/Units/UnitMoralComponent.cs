@@ -7,6 +7,7 @@ public class UnitMoralComponent : MonoBehaviour
     public float CurrentMorale = 0;
 	public float MoraleCheckInterval = 0.3f;
 	public float BolkonskyModeDuration = 10.0f;
+	public float InitMoraleImmuneDuration = 2.0f;
 
     bool moralBreak = false;
 	bool BolkonskyModeOn = false;
@@ -15,6 +16,7 @@ public class UnitMoralComponent : MonoBehaviour
     private float collectiveMorale = 0;
 	private float lastMoraleCheckTime = 0;
 	private float BolkonskyModeStartTime = 0;
+	private float levelStartTime = 0;
 
 	// Use this for initialization
 	void Awake()
@@ -27,6 +29,7 @@ public class UnitMoralComponent : MonoBehaviour
 	void Start()
 	{
 		lastMoraleCheckTime = Time.timeSinceLevelLoad;
+		levelStartTime = lastMoraleCheckTime;
 	}
 
     //public void Deinit()
@@ -37,6 +40,10 @@ public class UnitMoralComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (Time.timeSinceLevelLoad - levelStartTime < InitMoraleImmuneDuration)
+		{
+			return;
+		}
 		if (Time.timeSinceLevelLoad - lastMoraleCheckTime < MoraleCheckInterval)
 		{
 			return;

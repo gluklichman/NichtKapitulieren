@@ -15,5 +15,6 @@ public class PlayerControlsConfig : ScriptableObject
     public int energyForTank = 0;
     public int energyForGrenadiers = 0;
     public int grenadiersCount = 0;
-    public int energyForAirplane = 0;
+	public int soldiersCount = 0;
+	public int energyForAirplane = 0;
 }

@@ -28,7 +28,7 @@ public class AI : MonoBehaviour
         System.Random rnd = new System.Random();
 
         string[] names = System.Enum.GetNames(typeof(AwaitingUnit));
-        int unitIndex = rnd.Next(names.Length - 1);
+        int unitIndex = rnd.Next(names.Length);
         currentUnit = (AwaitingUnit)System.Enum.Parse(typeof(AwaitingUnit), names[unitIndex]);
         Debug.Log("Ai select unit: " + currentUnit);
     }
