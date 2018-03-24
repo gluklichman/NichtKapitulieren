@@ -78,15 +78,15 @@ public class UnitMoralComponent : MonoBehaviour
 				BolkonskyModeOn = false;
 				CurrentMorale = unit.GetParams().baseMorale;
 				unit.SetHP(1);
-				/*if (unit.GetOwner() == UnitOwner.PLAYER)
+				if (unit.GetOwner() == UnitOwner.PLAYER)
 				{
-					transform.Find("SpritePlayer").GetComponent<SpriteRenderer>().color = Color.white;
+					transform.Find("SpritePlayer/flag").GetComponent<SpriteRenderer>().enabled = false;
 				}
 				else
 				{
-					transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().color = Color.white;
-				}*/
-				unit.soldierSprite.SwitchImage(unit.soldierSprite.runSprite);
+					transform.Find("SpriteEnemy/flag").GetComponent<SpriteRenderer>().enabled = false;
+				}
+				//unit.soldierSprite.SwitchImage(unit.soldierSprite.runSprite);
 			}
 		}
     }
@@ -135,16 +135,17 @@ public class UnitMoralComponent : MonoBehaviour
 		BolkonskyModeOn = true;
 		BolkonskyModeStartTime = Time.timeSinceLevelLoad;
 		unit.SetHP(5);
-		/*
+		
 		if (unit.GetOwner() == UnitOwner.PLAYER)
 		{
-			transform.Find("SpritePlayer").GetComponent<SpriteRenderer>().color = Color.black;
+			transform.Find("SpritePlayer/flag").GetComponent<SpriteRenderer>().enabled = true;
 		}
 		else
 		{
-			transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().color = Color.black;
-		}*/
-		unit.soldierSprite.SwitchImage(unit.soldierSprite.bolkonskySprite);
+			transform.Find("SpriteEnemy/flag").GetComponent<SpriteRenderer>().enabled = true;
+		}
+		Debug.Log("Hero!!!");
+		//unit.soldierSprite.SwitchImage(unit.soldierSprite.bolkonskySprite);
 
 	}
 

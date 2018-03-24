@@ -70,15 +70,23 @@ public class Unit : MonoBehaviour {
 
 		if (owner == UnitOwner.PLAYER)
 		{
-				transform.Find("SpriteEnemy").gameObject.SetActive(false);
-				transform.Find("SpritePlayer").gameObject.SetActive(true);
-				transform.Find("SpritePlayer/shotFire").gameObject.SetActive(false);
+			transform.Find("SpriteEnemy").gameObject.SetActive(false);
+			transform.Find("SpritePlayer").gameObject.SetActive(true);
+			transform.Find("SpritePlayer/shotFire").gameObject.SetActive(false);
+			if (transform.Find("SpritePlayer/flag") != null)
+			{
+				transform.Find("SpritePlayer/flag").gameObject.SetActive(false);
+			}
 		}
 		else
 		{
-				transform.Find("SpriteEnemy").gameObject.SetActive(true);
-				transform.Find("SpriteEnemy/shotFire").gameObject.SetActive(false);
-				transform.Find("SpritePlayer").gameObject.SetActive(false);
+			transform.Find("SpriteEnemy").gameObject.SetActive(true);
+			transform.Find("SpriteEnemy/shotFire").gameObject.SetActive(false);
+			if (transform.Find("SpriteEnemy/flag") != null)
+			{
+				transform.Find("SpriteEnemy/flag").gameObject.SetActive(false);
+			}
+			transform.Find("SpritePlayer").gameObject.SetActive(false);
 		}
         soldierSprite = transform.GetComponentInChildren<SoldierSprite>();
         hitpoint = GetParams().hitpoints;
