@@ -1190,6 +1190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: 393663324d0c94c4fa4d5cf7a53647fe, type: 2}
   spawner: {fileID: 1191417750}
+  mySpawnArea: {fileID: 1191417752}
   progressBar: {fileID: 372964048}
   invertProgress: 1
   abilityIcons:
@@ -1327,6 +1328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: 393663324d0c94c4fa4d5cf7a53647fe, type: 2}
   spawner: {fileID: 1198834265}
+  mySpawnArea: {fileID: 1198834266}
   progressBar: {fileID: 1410657249}
   invertProgress: 0
   abilityIcons:

@@ -9,6 +9,8 @@ public class PlayerControls : MonoBehaviour
     private PlayerControlsConfig config = null;
     [SerializeField]
     private SoldierSpawner spawner = null;
+    [SerializeField]
+    private AreaHitComponent mySpawnArea = null;
 
     [Header("UI")]
     [SerializeField]
@@ -35,6 +37,7 @@ public class PlayerControls : MonoBehaviour
     {
         Debug.Assert(config != null);
         Debug.Assert(spawner != null);
+        Debug.Assert(mySpawnArea != null);
 
         abilityCosts = new int[]
         {
@@ -48,6 +51,8 @@ public class PlayerControls : MonoBehaviour
         lastAddEnergyTime = Time.timeSinceLevelLoad;
         SetupAbilities();
         UpdateProgress();
+
+        mySpawnArea.damageDealt += OnAreaHit;
     }
 
     void SetupAbilities()
@@ -61,6 +66,19 @@ public class PlayerControls : MonoBehaviour
             abilityImage.rectTransform.localPosition = new Vector3(width * widthPercent * multiplier, -12, 0);
             abilityImage.color = Color.black;
         }
+    }
+
+    private void OnDestroy()
+    {
+        mySpawnArea.damageDealt -= OnAreaHit;
+    }
+
+    private void OnAreaHit()
+    {
+        int energyForMax = config.maxEnergy - currentEnergy;
+        int energyBoost = Mathf.Min(energyForMax, config.energyBoostForEnemyUnit);
+        currentEnergy += energyBoost;
+        UpdateProgress();
     }
 
     // Update is called once per frame

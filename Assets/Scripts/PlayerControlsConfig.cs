@@ -8,6 +8,7 @@ public class PlayerControlsConfig : ScriptableObject
     public int initialEnergy = 0;
     public int maxEnergy = 0;
     public float oneEnergyRestoreTime = 0;
+    public int energyBoostForEnemyUnit = 10;
 
     [Header("SpellsConfig")]
     public int energyForSoldiers = 0;

@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 
 public class AreaHitComponent : MonoBehaviour
 {
     [SerializeField]
     private int hits = 20;
+
+    public Action damageDealt;
 
     // Use this for initialization
     void Start()
@@ -21,6 +23,10 @@ public class AreaHitComponent : MonoBehaviour
     public void DealDamage(int damage)
     {
         hits -= damage;
+        if (damageDealt != null)
+        {
+            damageDealt();
+        }
         if (hits <= 0)
         {
             EndGame();
