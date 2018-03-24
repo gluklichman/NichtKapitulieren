@@ -11,11 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c940c9da1abddf428c830033e4b950a, type: 3}
   m_Name: PlayerControlsConfig
   m_EditorClassIdentifier: 
-  initialEnergy: 0
+  initialEnergy: 25
   maxEnergy: 100
-  oneEnergyRestoreTime: 1
-  energyForSoldiers: 30
-  energyForTank: 60
-  energyForGrenadiers: 20
+  oneEnergyRestoreTime: 0.5
+  energyForSoldiers: 15
+  energyForTank: 50
+  energyForGrenadiers: 25
   grenadiersCount: 5
-  energyForAirplane: 80
+  soldiersCount: 10
+  energyForAirplane: 70

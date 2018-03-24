@@ -151,7 +151,7 @@ public class PlayerControls : MonoBehaviour
         }
         currentEnergy -= config.energyForSoldiers;
         UpdateProgress();
-        spawner.StartSpawnSoldiers();
+        spawner.SpawnNSoldiers( config.soldiersCount );
         return true;
     }
 

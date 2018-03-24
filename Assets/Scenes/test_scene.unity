@@ -1335,8 +1335,8 @@ MonoBehaviour:
   - {fileID: 679619624}
   - {fileID: 584075760}
   soldiersButton: 113
-  tankButton: 119
-  grenadiersButton: 101
+  tankButton: 101
+  grenadiersButton: 119
   airplaneButton: 114
   aiDriven: 0
 --- !u!1 &978535675
