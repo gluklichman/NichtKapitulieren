@@ -26,7 +26,7 @@ public class UnitAimComponent : MonoBehaviour
 
         aimRadius.enabled = true;
         aimRadius.isTrigger = true;
-        aimRadius.radius = unit.GetParams().aimRadius;
+        aimRadius.radius = unit.GetParams().aimRadius + Random.Range(-0.5f*unit.GetParams().aimRadius, 0.5f*unit.GetParams().aimRadius);
 
         possibleAims = new List<Unit>();
     }

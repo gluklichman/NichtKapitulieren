@@ -5,14 +5,16 @@ public class UnitMoralComponent : MonoBehaviour
 {
     public Unit unit = null;
     public float CurrentMorale = 0;
+	public float MoraleCheckInterval = 1.0f;
 
     bool moralBreak = false;
 
     [SerializeField]
     private float collectiveMorale = 0;
+	private float lastMoraleCheckTime = 0;
 
-    // Use this for initialization
-    void Awake()
+	// Use this for initialization
+	void Awake()
     {
         unit = GetComponent<Unit>();
         CurrentMorale = unit.GetParams().baseMorale;
@@ -58,7 +60,15 @@ public class UnitMoralComponent : MonoBehaviour
         if (collectiveMoral <= unit.GetParams().moralBreakValue
             && !moralBreak)
         {
-            StartMoralBreak();
+			float rnd = Random.Range(0f, 1.0f);
+			if (rnd < 0.5f)
+			{
+				StartMoralBreak();
+			}
+			else
+			{
+				StartAndreyBolkonskyMode();
+			}
             return;
         }
         if (collectiveMoral > unit.GetParams().moralBreakValue
@@ -82,4 +92,19 @@ public class UnitMoralComponent : MonoBehaviour
         CurrentMorale = unit.GetParams().baseMorale;
         unit.SetState(new RunUnitState(unit), unit.GetUnitState());
     }
+
+	private void StartAndreyBolkonskyMode()
+	{
+		CurrentMorale = 200;
+		if (unit.GetOwner() == UnitOwner.PLAYER)
+		{
+			transform.Find("SpritePlayer").GetComponent<SpriteRenderer>().color = Color.black;
+		}
+		else
+		{
+			transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().color = Color.black;
+		}
+
+	}
+
 }
