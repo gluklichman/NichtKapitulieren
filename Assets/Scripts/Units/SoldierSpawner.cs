@@ -35,11 +35,11 @@ public class SoldierSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetMouseButtonUp(0)
-        //    && Owner == UnitOwner.PLAYER)
-        //{
-        //    SpawnTank();
-        //}
+        if (Input.GetMouseButtonUp(0)
+            && Owner == UnitOwner.PLAYER)
+        {
+            SpawnAirplane();
+        }
 
 
 		if (isWave)
@@ -152,5 +152,11 @@ public class SoldierSpawner : MonoBehaviour
                 instance.transform.SetParent(enemyUnitsContainer);
             }
         }
+    }
+
+    public void SpawnAirplane()
+    {
+        Airplane plane = UnitPool.Instance.GetAirplaneFromPool();
+        plane.Init(Owner);
     }
 }

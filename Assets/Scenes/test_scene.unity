@@ -1836,6 +1836,8 @@ MonoBehaviour:
   TankPrefab: {fileID: 1321504228406144, guid: 30bebf7a97f7e0840800a282d3161568, type: 2}
   BazookaPrefab: {fileID: 1476321442058194, guid: f13a3cbc140862945a8c0cc0f5626a2a,
     type: 2}
+  AirplanePrefab: {fileID: 1070735164699594, guid: 633b6461fb5bad44aa2da19a709ad31a,
+    type: 2}
 --- !u!4 &1384593301
 Transform:
   m_ObjectHideFlags: 0
