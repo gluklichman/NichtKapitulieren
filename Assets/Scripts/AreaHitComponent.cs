@@ -35,6 +35,6 @@ public class AreaHitComponent : MonoBehaviour
 
     private void EndGame()
     {
-        Time.timeScale = 0;
+        EndGameScreen.ShowEndGameScreen();
     }
 }

@@ -161,6 +161,42 @@ public class PlayerControls : MonoBehaviour
         return true;
     }
 
+    public void OnSpawnGrenadierButton()
+    {
+        if (aiDriven)
+        {
+            return;
+        }
+        TrySpawnGrenadiers();
+    }
+
+    public void OnSpawnSoldiersButton()
+    {
+        if (aiDriven)
+        {
+            return;
+        }
+        TrySpawnSoldiers();
+    }
+
+    public void OnSpawnTankButton()
+    {
+        if (aiDriven)
+        {
+            return;
+        }
+        TrySpawnTank();
+    }
+
+    public void OnSpawnAirplaneButton()
+    {
+        if (aiDriven)
+        {
+            return;
+        }
+        TrySpawnAirplane();
+    }
+
     public bool TrySpawnSoldiers()
     {
         if (currentEnergy < config.energyForSoldiers)

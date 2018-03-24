@@ -231,6 +231,7 @@
     <Compile Include="Assets\Scripts\Graphics\MeshColliderFill.cs" />
     <Compile Include="Assets\Scripts\Graphics\SolidColorFill.cs" />
     <Compile Include="Assets\Scripts\Graphics\Triangulator.cs" />
+    <Compile Include="Assets\Scripts\EndGameScreen.cs" />
     <Compile Include="Assets\Scripts\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\PlayerControlsConfig.cs" />
     <Compile Include="Assets\Scripts\ShotSounds.cs" />

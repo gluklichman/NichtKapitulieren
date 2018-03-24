@@ -11,6 +11,7 @@ public class TankSplashDamage : BaseDamageComponent
     public override void DealDamage(List<Unit> possibleAims, Unit unit)
     {
         TankParams tankParams = unit.GetParams() as TankParams;
+        possibleAims.RemoveAll(target => target == null);
 
         if (possibleAims.Count == 0)
         {
