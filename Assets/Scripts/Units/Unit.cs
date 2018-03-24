@@ -64,10 +64,7 @@ public class Unit : MonoBehaviour {
     {
         this.owner = owner;
 
-        if (aimComponent == null)
-        {
-            aimComponent = gameObject.AddComponent<UnitAimComponent>();
-        }
+        CreateAimComponent();
         aimComponent.Init(this);
         moralComponent = gameObject.AddComponent<UnitMoralComponent>();
 
@@ -87,6 +84,14 @@ public class Unit : MonoBehaviour {
         hitpoint = GetParams().hitpoints;
 
         SetState(new RunUnitState(this), unitState);
+    }
+
+    protected virtual void CreateAimComponent()
+    {
+        if (aimComponent == null)
+        {
+            aimComponent = gameObject.AddComponent<UnitAimComponent>();
+        }
     }
 
     public void SetState(BaseUnitState newState, BaseUnitState prevState)

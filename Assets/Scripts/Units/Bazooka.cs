@@ -17,4 +17,12 @@ public class Bazooka : Unit
 	{
 		return UnitType.BAZOOKA;
 	}
+
+    protected override void CreateAimComponent()
+    {
+        if (aimComponent == null)
+        {
+            aimComponent = gameObject.AddComponent<GrenadesAimComponent>();
+        }
+    }
 }

@@ -3,11 +3,9 @@ using System.Collections.Generic;
 
 public class UnitAimComponent : MonoBehaviour
 {
-    private CircleCollider2D aimRadius = null;
-    private Unit unit = null;
-
-    [SerializeField]
-    private List<Unit> possibleAims = null;
+    protected CircleCollider2D aimRadius = null;
+    protected Unit unit = null;
+    protected List<Unit> possibleAims = null;
 
     // Use this for initialization
     void Awake()
@@ -66,12 +64,12 @@ public class UnitAimComponent : MonoBehaviour
         }
     }
 
-    public bool HasAvailableAims()
+    public virtual bool HasAvailableAims()
     {
         return possibleAims.Count > 0;
     }
 
-    public List<Unit> GetPossibleAims()
+    public virtual List<Unit> GetPossibleAims()
     {
         possibleAims.RemoveAll(unit => unit.GetUnitState().GetStateType() == UnitStateType.IDLE);
         return possibleAims;

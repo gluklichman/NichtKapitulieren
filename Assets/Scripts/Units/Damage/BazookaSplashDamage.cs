@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 public class BazookaSplashDamage : BaseDamageComponent
 {
-    /*private const float MIN_DELTA = 1.0f;
-    private const float MAX_DELTA = 5.0f;
-    private const float RADIUS = 3.0f;*/
 
     public override void DealDamage(List<Unit> possibleAims, Unit unit)
     {
@@ -31,11 +28,6 @@ public class BazookaSplashDamage : BaseDamageComponent
         Unit aim = possibleAims[maxXindex];
 
         Vector2 aimCenter = aim.transform.position;
-       // float radius = unit.GetParams().hitRadius;
-       // Vector2 point = Random.insideUnitCircle * radius + aimCenter;
-
-        //Vector2 radiusVector = (point - (Vector2)unit.transform.position).normalized;
-        //float delta = Random.Range(bazookaParams.minShootError, bazookaParams.maxShootError);
         Vector2 explosionPoint = aimCenter;
 
         RaycastHit2D[] hits = Physics2D.CircleCastAll(explosionPoint, bazookaParams.explosionRadius, Vector2.zero);
@@ -51,10 +43,6 @@ public class BazookaSplashDamage : BaseDamageComponent
             {
                 continue;
             }
-            //if (target.GetOwner() == unit.GetOwner())
-            //{
-            //    continue;
-            //}
             target.DealDamage(unit.GetParams().damage);
         }
 
