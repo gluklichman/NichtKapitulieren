@@ -80,11 +80,11 @@ public class UnitMoralComponent : MonoBehaviour
 				unit.SetHP(1);
 				if (unit.GetOwner() == UnitOwner.PLAYER)
 				{
-					transform.Find("SpritePlayer/flag").GetComponent<SpriteRenderer>().enabled = false;
+					transform.Find("SpritePlayer/flag").gameObject.SetActive(false);
 				}
 				else
 				{
-					transform.Find("SpriteEnemy/flag").GetComponent<SpriteRenderer>().enabled = false;
+					transform.Find("SpriteEnemy/flag").gameObject.SetActive(false);
 				}
 				//unit.soldierSprite.SwitchImage(unit.soldierSprite.runSprite);
 			}
@@ -138,13 +138,12 @@ public class UnitMoralComponent : MonoBehaviour
 		
 		if (unit.GetOwner() == UnitOwner.PLAYER)
 		{
-			transform.Find("SpritePlayer/flag").GetComponent<SpriteRenderer>().enabled = true;
+			transform.Find("SpritePlayer/flag").gameObject.SetActive(true);
 		}
 		else
 		{
-			transform.Find("SpriteEnemy/flag").GetComponent<SpriteRenderer>().enabled = true;
+			transform.Find("SpriteEnemy/flag").gameObject.SetActive(true);
 		}
-		Debug.Log("Hero!!!");
 		//unit.soldierSprite.SwitchImage(unit.soldierSprite.bolkonskySprite);
 
 	}
