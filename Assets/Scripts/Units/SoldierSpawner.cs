@@ -98,6 +98,8 @@ public class SoldierSpawner : MonoBehaviour
         if (Owner == UnitOwner.PLAYER)
         {
             instance.transform.SetParent(playerUnitsContainer);
+			instance.GetComponent<SpriteRenderer>().sortingLayerName = "Units";
+			instance.GetComponent<SpriteRenderer>().sortingOrder = (int) posY;
         }
         else
         {
