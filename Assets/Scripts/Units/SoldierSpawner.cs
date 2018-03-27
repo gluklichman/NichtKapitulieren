@@ -97,19 +97,18 @@ public class SoldierSpawner : MonoBehaviour
         float posY = Random.Range(spawnAreaBottom, spawnAreaTop);
         instance.transform.position = new Vector3(spawnPositionX, posY, 0);
 
-		SpriteRenderer mySpriteRenderer = instance.transform.Find("SpritePlayer").GetComponent<SpriteRenderer>();
-
-		mySpriteRenderer.sortingLayerName = "Units";
-		mySpriteRenderer.sortingOrder = 30 - (int)posY;
-
 		if (Owner == UnitOwner.PLAYER)
-        {
-            instance.transform.SetParent(playerUnitsContainer);
+		{
+			instance.transform.SetParent(playerUnitsContainer);
+			instance.transform.Find("SpritePlayer").GetComponent<SpriteRenderer>().sortingLayerName = "Units";
+			instance.transform.Find("SpritePlayer").GetComponent<SpriteRenderer>().sortingOrder = 30 - (int)posY;
 		}
-        else
-        {
-            instance.transform.SetParent(enemyUnitsContainer);
-        }
+		else
+		{
+			instance.transform.SetParent(enemyUnitsContainer);
+			instance.transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().sortingLayerName = "Units";
+			instance.transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().sortingOrder = 30 - (int)posY;
+		}
 
 	}
 
@@ -128,21 +127,20 @@ public class SoldierSpawner : MonoBehaviour
         instance.GetComponent<BoxCollider2D>().enabled = true;
         
         float posY = Random.Range(spawnAreaBottom, spawnAreaTop);
-        instance.transform.position = new Vector3(spawnPositionX, posY, 0);
-
-		SpriteRenderer mySpriteRenderer = instance.transform.Find("SpritePlayer").GetComponent<SpriteRenderer>();
-
-		mySpriteRenderer.sortingLayerName = "Units";
-		mySpriteRenderer.sortingOrder = 30 - (int)posY;
+		instance.transform.position = new Vector3(spawnPositionX, posY, 0);	
 
 		if (Owner == UnitOwner.PLAYER)
         {
             instance.transform.SetParent(playerUnitsContainer);
-        }
+			instance.transform.Find("SpritePlayer").GetComponent<SpriteRenderer>().sortingLayerName = "Units";
+			instance.transform.Find("SpritePlayer").GetComponent<SpriteRenderer>().sortingOrder = 30 - (int)posY;
+		}
         else
         {
             instance.transform.SetParent(enemyUnitsContainer);
-        }
+			instance.transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().sortingLayerName = "Units";
+			instance.transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().sortingOrder = 30 - (int)posY;
+		}
     }
 
     public void SpawnGrenadiers(int count)
@@ -156,15 +154,19 @@ public class SoldierSpawner : MonoBehaviour
             float posY = Random.Range(spawnAreaBottom, spawnAreaTop);
             instance.transform.position = new Vector3(spawnPositionX, posY, 0);
 
-            if (Owner == UnitOwner.PLAYER)
-            {
-                instance.transform.SetParent(playerUnitsContainer);
-            }
-            else
-            {
-                instance.transform.SetParent(enemyUnitsContainer);
-            }
-        }
+			if (Owner == UnitOwner.PLAYER)
+			{
+				instance.transform.SetParent(playerUnitsContainer);
+				instance.transform.Find("SpritePlayer").GetComponent<SpriteRenderer>().sortingLayerName = "Units";
+				instance.transform.Find("SpritePlayer").GetComponent<SpriteRenderer>().sortingOrder = 30 - (int)posY;
+			}
+			else
+			{
+				instance.transform.SetParent(enemyUnitsContainer);
+				instance.transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().sortingLayerName = "Units";
+				instance.transform.Find("SpriteEnemy").GetComponent<SpriteRenderer>().sortingOrder = 30 - (int)posY;
+			}
+		}
     }
 
 	public void SpawnNSoldiers(int count)
