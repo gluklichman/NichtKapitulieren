@@ -47,6 +47,7 @@ public class SoldierSpawner : MonoBehaviour
 			if (Time.timeSinceLevelLoad - lastSpawnTime > periodBetweenUnits)
 			{
 				SpawnSoldier();
+				//isWave = false;
 				lastSpawnTime = Time.timeSinceLevelLoad;
 			}
 			if (Time.timeSinceLevelLoad - lastWaveTime > waveLength)
@@ -88,6 +89,7 @@ public class SoldierSpawner : MonoBehaviour
 		else
 		{
 			instance = UnitPool.Instance.GetBazookaFromPool();
+			Debug.Log(SortingLayer.layers);
 		}
 		instance.InitUnit(Owner);
         instance.GetComponent<BoxCollider2D>().enabled = true;
@@ -95,17 +97,21 @@ public class SoldierSpawner : MonoBehaviour
         float posY = Random.Range(spawnAreaBottom, spawnAreaTop);
         instance.transform.position = new Vector3(spawnPositionX, posY, 0);
 
-        if (Owner == UnitOwner.PLAYER)
+		SpriteRenderer mySpriteRenderer = instance.transform.Find("SpritePlayer").GetComponent<SpriteRenderer>();
+
+		mySpriteRenderer.sortingLayerName = "Units";
+		mySpriteRenderer.sortingOrder = 30 - (int)posY;
+
+		if (Owner == UnitOwner.PLAYER)
         {
             instance.transform.SetParent(playerUnitsContainer);
-			instance.GetComponent<SpriteRenderer>().sortingLayerName = "Units";
-			instance.GetComponent<SpriteRenderer>().sortingOrder = (int) posY;
-        }
+		}
         else
         {
             instance.transform.SetParent(enemyUnitsContainer);
         }
-    }
+
+	}
 
     void OnDrawGizmosSelected()
     {        
@@ -124,7 +130,12 @@ public class SoldierSpawner : MonoBehaviour
         float posY = Random.Range(spawnAreaBottom, spawnAreaTop);
         instance.transform.position = new Vector3(spawnPositionX, posY, 0);
 
-        if (Owner == UnitOwner.PLAYER)
+		SpriteRenderer mySpriteRenderer = instance.transform.Find("SpritePlayer").GetComponent<SpriteRenderer>();
+
+		mySpriteRenderer.sortingLayerName = "Units";
+		mySpriteRenderer.sortingOrder = 30 - (int)posY;
+
+		if (Owner == UnitOwner.PLAYER)
         {
             instance.transform.SetParent(playerUnitsContainer);
         }
